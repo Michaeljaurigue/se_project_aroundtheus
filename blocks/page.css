@@ -1,0 +1,30 @@
+.page {
+  background-color: black;
+  color: white;
+  margin: 0 auto;
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center; 
+   position: relative; 
+  background: #000000; 
+  min-width: 1280px;
+  min-height: 1217px;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  justify-items: center;
+  border: 2px solid red; */
+}
+
+.page__section {
+  max-width: 880px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+.page__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
