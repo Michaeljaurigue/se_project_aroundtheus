@@ -1,17 +1,35 @@
 .footer {
-  border: 2px solid red;
-  display: flex;
-  align-items: center;
-  width: 318px;
-  height: 18px;
-  /* left: 200px;
-  top: 1139px; */
+  margin: 0 auto;
+  color: #545454;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+}
 
-  color: #545454;
+@media screen and (max-width: 1280px) {
+}
+
+@media screen and (min-width: 551px) and (max-width: 950px) {
+  .footer {
+    width: calc((282px * 2) + 17px);
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 550px) {
+  .footer {
+    width: 282px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    width: 282px;
+  }
 }
