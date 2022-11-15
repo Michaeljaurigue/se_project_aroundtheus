@@ -3,7 +3,7 @@
   margin-top: 30px;
 }
 
-.card__list {
+.cards__list {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
@@ -14,7 +14,7 @@
   list-style-type: none;
 }
 
-.card {
+.card__list-item {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -23,12 +23,12 @@
 
   white-space: nowrap;
 }
-.card__image {
+.cards__image {
   width: 282px;
   height: 282px;
 }
 
-.card__description {
+.cards__description {
   display: flex;
   background-color: white;
   color: black;
@@ -47,7 +47,7 @@
   line-height: 29px;
 }
 
-.card__like-button {
+.cards__like-button {
   background: url(../images/Heart\ Vector.svg);
   width: 21px;
   height: 18px;
