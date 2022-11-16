@@ -23,10 +23,6 @@
   display: flex;
   align-items: center;
   max-width: 880px;
-}
-
-.header__line {
-  max-width: 880px;
   opacity: 70%;
   width: 100%;
 }
@@ -46,7 +42,6 @@
 @media screen and (max-width: 320px) {
   .header {
     display: flex;
-    flex-direction: column;
 
     align-items: center;
     min-width: 282px;

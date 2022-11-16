@@ -35,6 +35,8 @@
 
 .card__title {
   max-width: 220px;
+
+  font-family: "Inter-Black", Arial, sans-serif;
   font-size: 24px;
   font-weight: 900;
   line-height: 29px;
