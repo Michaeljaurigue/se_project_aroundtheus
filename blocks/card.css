@@ -12,6 +12,9 @@
   margin: 0;
   text-overflow: ellipsis;
   list-style-type: none;
+  overflow: hidden;
+  white-space: nowrap;
+
 }
 
 .card__list-item {
@@ -19,9 +22,9 @@
   flex-direction: column;
   border-radius: 10px;
   list-style: none;
-  overflow: hidden;
-
-  white-space: nowrap;
+  /* overflow: hidden;
+  white-space: nowrap; */
+  
 }
 .cards__image {
   width: 282px;
