@@ -11,7 +11,7 @@
   line-height: 22px;
 }
 
-@media screen and (max-width: 1280px) {
+/* @media screen and (max-width: 1280px) {
 }
 
 @media screen and (min-width: 551px) and (max-width: 950px) {
@@ -19,17 +19,16 @@
     width: calc((282px * 2) + 17px);
     margin: 0 auto;
   }
-}
+} */
 
 @media screen and (min-width: 321px) and (max-width: 550px) {
-  .footer {
-    width: 282px;
-    margin: 0 auto;
-  }
-}
 
+}
 @media screen and (max-width: 320px) {
+
   .footer {
-    width: 282px;
+    min-width: 282px;
+    margin: 0 19px 0 19px;
+    flex-direction: column;
   }
 }
