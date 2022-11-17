@@ -4,31 +4,22 @@
   padding-top: 3vh;
   padding-bottom: 3vh;
 
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
 }
 
-/* @media screen and (max-width: 1280px) {
+.footer__content {
+  margin: 0 auto;
 }
 
-@media screen and (min-width: 551px) and (max-width: 950px) {
-  .footer {
-    width: calc((282px * 2) + 17px);
-    margin: 0 auto;
-  }
-} */
-
-@media screen and (min-width: 321px) and (max-width: 550px) {
-
-}
-@media screen and (max-width: 320px) {
-
+@media screen and (max-width: 400px) {
   .footer {
     min-width: 282px;
     margin: 0 19px 0 19px;
     flex-direction: column;
+    font-size: 14px;
   }
 }

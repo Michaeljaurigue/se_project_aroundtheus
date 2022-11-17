@@ -1,15 +1,7 @@
 @font-face {
-  font-family: "Inter-Medium";
+  font-family: "Inter";
   src: url(../fonts/static/Inter-Medium.ttf);
-}
-
-@font-face {
-    font-family: "Inter-Regular";
-    src: url(../fonts/static/Inter-Regular.ttf);
-}
-
-@font-face {
-    font-family: "Inter-Black";
-    src: url(../fonts/static/Inter-Black.ttf);
+  src: url(../fonts/static/Inter-Regular.ttf);
+  src: url(../fonts/static/Inter-Black.ttf);
 }
   
