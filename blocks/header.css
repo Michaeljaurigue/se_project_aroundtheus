@@ -29,7 +29,7 @@
   }
 
   .header__content {
-    max-width: 320px;
+    width: 100%;
   }
 
   .header__logo {

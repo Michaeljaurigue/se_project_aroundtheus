@@ -34,5 +34,6 @@
     max-width: 282px;
     min-width: 282px;
     flex-direction: column;
+    margin: 0;
   }
 }

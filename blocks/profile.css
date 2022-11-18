@@ -25,7 +25,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: fit-content;
-  align-self: center;
+  align-items: center;
 }
 
 .profile__name {
@@ -117,17 +117,17 @@
 @media screen and (max-width: 400px) {
   .profile {
     flex-direction: column;
-
   }
 
   .profile__image {
     margin-left: 72.75px;
     margin-right: 72.75px;
   }
-
-  .profile__name {
+  .profile__name-edit {
     margin-top: 26.25px;
     margin-bottom: 14px;
+  }
+  .profile__name {
     font-size: 22px;
     line-height: 27px;
     max-width: 196px;
