@@ -13,18 +13,9 @@
   border-radius: 10px;
 }
 
-/* 
-@media screen and (min-width: 321px) and (max-width: 550px) {
-  .cards {
-    margin: 0 19px 0 19px;
-    flex-direction: column;
-  }
-} */
-
 @media screen and (max-width: 400px) {
   .cards {
-    min-width: 282px;
-    margin: 0 19px 0 19px;
+
     flex-direction: column;
   }
 }

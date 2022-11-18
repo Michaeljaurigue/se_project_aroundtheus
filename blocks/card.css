@@ -6,7 +6,6 @@
   overflow: hidden;
 
   font-family: "Inter", Arial, sans-serif;
-  /* font-family */
 }
 
 .card__title {
@@ -31,7 +30,7 @@
   background-color: white;
   color: black;
   padding-top: 25px;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
   padding-left: 20px;
   padding-right: 20px;
   align-items: center;

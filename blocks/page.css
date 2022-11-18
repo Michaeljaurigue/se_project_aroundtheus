@@ -3,6 +3,7 @@
   background-color: black;
   color: white;
   margin: 0 auto;
+  padding: 0 auto;
 }
 
 .page__content {
@@ -23,13 +24,18 @@
 }
 
 @media screen and (max-width: 400px) {
-  /* .page__content {
-    max-width: 550px;
-  } */
-
-  .page__section {
+  .page__content {
+    max-width: 282px;
+  }
+  .page__content {
+    max-width: 282px;
     min-width: 282px;
-    margin: 0 19px 0 19px;
+    margin: 0 auto;
+    padding: 0 auto;
+  }
+  .page__section {
+    max-width: 282px;
+    min-width: 282px;
     flex-direction: column;
   }
 }
