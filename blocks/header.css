@@ -22,8 +22,6 @@
 
 @media screen and (max-width: 400px) {
   .header {
-    /* min-width: 282px;
-    margin: 0 19px 0 19px; */
     display: flex;
     align-items: center;
     min-width: 282px;
@@ -33,7 +31,7 @@
   .header__content {
     max-width: 320px;
   }
-  
+
   .header__logo {
     width: 126px;
     height: 24px;
