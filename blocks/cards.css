@@ -1,5 +1,5 @@
 .cards {
-  margin-top: 51px;
+  margin-top: 47.25px;
 }
 
 .cards__list {
@@ -15,7 +15,6 @@
 
 @media screen and (max-width: 400px) {
   .cards {
-
     flex-direction: column;
   }
 }

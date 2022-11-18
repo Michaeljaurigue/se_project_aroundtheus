@@ -1,7 +1,7 @@
 .profile {
   display: flex;
   align-items: center;
-  padding-top: 40px;
+  padding-top: 36.25px;
 }
 
 .profile__content {
@@ -118,8 +118,8 @@
   .profile {
     /* min-width: 282px; */
     /* margin: 0 19px 0 19px; */
-    padding-top: 42px;
-    padding-bottom: 42px;
+    /* padding-top: 42px;
+    padding-bottom: 42px; */
     flex-direction: column;
     /* margin: 0 19px 0 19px; */
   }
@@ -128,7 +128,7 @@
     /* margin: 0 auto 0 auto; */
     margin-left: 72.75px;
     margin-right: 72.75px;
-    margin-top: 38.25px;
+    /* margin-top: 38.25px; */
   }
 
   .profile__name {

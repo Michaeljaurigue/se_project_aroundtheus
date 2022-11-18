@@ -30,6 +30,10 @@
     flex-direction: column;
   }
 
+  .header__content {
+    max-width: 320px;
+  }
+  
   .header__logo {
     width: 126px;
     height: 24px;
