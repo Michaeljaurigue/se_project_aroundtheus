@@ -25,13 +25,11 @@
 
 @media screen and (max-width: 400px) {
   .page__content {
-    /* max-width: 282px; */
     min-width: 282px;
     margin: 0 auto;
     padding: 0 auto;
   }
   .page__section {
-    /* max-width: 282px; */
     min-width: 282px;
     flex-direction: column;
     margin: 0;
