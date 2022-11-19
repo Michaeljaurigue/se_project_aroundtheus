@@ -15,3 +15,5 @@ Links-
 Link to the project: https://github.com/Michaeljaurigue/se_project_aroundtheus.git
 
 Link to the project on Figma: https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1
+
+Link to the live project: https://michaeljaurigue.github.io/se_project_aroundtheus/

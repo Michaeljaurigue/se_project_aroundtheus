@@ -3,7 +3,6 @@
   background-color: black;
   color: white;
   margin: 0 auto;
-  padding: 0 auto;
 }
 
 .page__content {
@@ -27,7 +26,6 @@
   .page__content {
     min-width: 282px;
     margin: 0 auto;
-    padding: 0 auto;
   }
   .page__section {
     min-width: 282px;
