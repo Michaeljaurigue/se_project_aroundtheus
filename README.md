@@ -3,7 +3,8 @@ Project 3: Around The U.S.
 Overview-
 
 The third project of the Yandex Practicum web development curriculum.
-This project we worked with what we learned specifically @media queries and grid so that the site would be able to work on multiple different screen sizes and device types.
+
+This project we added a bit of javascript and used arrays to form a nice list for future updates of the website.
 
 Technologies Used-
 
