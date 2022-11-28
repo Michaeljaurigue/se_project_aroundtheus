@@ -115,11 +115,42 @@
             </li>
           </ul>
         </section>
-        <script defer src="./scripts/index.js"></script>
       </main>
       <footer class="footer page__section">
         <p class="footer__content">&copy; 2022 Around The U.S.</p>
       </footer>
     </div>
+
+    <section class="modal modal__edit">
+      <div class="modal__container modal__opened">
+        <h3 class="modal__header">Edit Profile</h3>
+        <form action="#" class="form">
+          <fieldset class="form__fieldset">
+            <input
+              type="text"
+              class="form__input"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+            />
+            <input
+              type="text"
+              class="form__input"
+              id="description"
+              name="description"
+              placeholder="Description"
+              required
+            />
+          </fieldset>
+          <fieldset class="form__fieldset">
+            <button class="form__button">Save</button>
+          </fieldset>
+        </form>
+        <button class="modal__container_close-button" type="click"></button>
+      </div>
+    </section>
+
+    <script defer src="./scripts/index.js"></script>
   </body>
 </html>
