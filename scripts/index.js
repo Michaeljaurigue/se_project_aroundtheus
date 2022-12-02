@@ -1,3 +1,17 @@
+// Variables
+const editProfilePopUp = document.querySelector(".modal_edit");
+const editProfileButton = document.querySelector(".profile__edit");
+const closeEditProfileButton = document.querySelector(
+  ".modal__container_close-button"
+);
+
+editProfileButton.addEventListener("click", openProfileModal);
+closeEditProfileButton.addEventListener("click", closeProfileModal);
+
+function openProfileModal() {}
+
+function closeProfileModal() {}
+
 const initialCards = [
   {
     name: "Yosemite Valley",
