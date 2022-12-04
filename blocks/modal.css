@@ -1,6 +1,8 @@
 .modal {
-  display: none;
+  visibility: hidden;
+  display: flex;
   position: fixed;
+  opacity: 0;
   margin: 0;
   padding: 0;
   top: 0;
@@ -12,6 +14,8 @@
 
 .modal__opened {
   display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal__container {
