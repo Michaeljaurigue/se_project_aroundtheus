@@ -9,7 +9,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid rgb(84,84,84, .7);
+  border-bottom: 1px solid rgb(84, 84, 84, 0.7);
 }
 
 .header__logo {
@@ -19,8 +19,12 @@
   width: 173px;
   height: 33px;
 }
-
-@media screen and (max-width: 400px) {
+@media only screen and (max-width: 897px) and (min-width: 452px) {
+  .header__logo {
+    padding-left: 27px;
+  }
+}
+@media screen and (max-width: 452px) {
   .header {
     min-width: 282px;
   }

@@ -15,7 +15,12 @@
   margin: 0 auto;
 }
 
-@media screen and (max-width: 400px) {
+@media only screen and (max-width: 897px) and (min-width: 452px) {
+  .footer__content {
+    padding-left: 19px;
+  }
+}
+@media screen and (max-width: 452px) {
   .footer {
     padding-top: 48px;
     padding-bottom: 36px;
@@ -23,9 +28,7 @@
     font-size: 14px;
   }
 
-
-.footer__content {
-
-padding-left: 19px;
- }
+  .footer__content {
+    padding-left: 19px;
+  }
 }

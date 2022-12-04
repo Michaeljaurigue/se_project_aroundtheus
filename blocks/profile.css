@@ -102,7 +102,7 @@
   transition: 0.3s;
 }
 
-@media only screen and (max-width: 800px) and (min-width: 400px) {
+@media only screen and (max-width: 897px) and (min-width: 452px) {
   .profile {
     flex-direction: column;
   }
@@ -113,7 +113,7 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 452px) {
   .profile {
     flex-direction: column;
   }
