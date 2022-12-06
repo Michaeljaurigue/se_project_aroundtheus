@@ -48,6 +48,11 @@
   padding-top: 14.278px;
   padding-bottom: 14.278px;
   margin-top: 48px;
+  cursor: pointer;
+}
+
+.form__button:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 452px) {
