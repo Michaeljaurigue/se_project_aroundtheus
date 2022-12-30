@@ -1,5 +1,5 @@
 // Profile Pop Up Variables
-const editProfilePopUp = document.querySelector(".modal__edit");
+const editProfilePopUp = document.querySelector(".modal_edit");
 
 const editProfileForm = document.querySelector(".modal__form-edit");
 
