@@ -115,6 +115,7 @@ function getCardElement(data) {
   cardTitle.textContent = data.name;
 
   const cardImage = card.querySelector(".card__image");
+
   cardImage.setAttribute("src", data.link);
   cardImage.setAttribute("alt", `Photo of ${data.name}`);
 
@@ -192,7 +193,7 @@ const openImageModal = (evt, data) => {
 
 const closeImageModalButton = document.querySelector(".modal__image-close");
 
-const imagePreview = imageModal.querySelector(".modal__img");
+const imagePreview = imageModal.querySelector(".modal__image-img");
 const imageText = imageModal.querySelector(".modal__image-text");
 
 function closeImageModal() {
