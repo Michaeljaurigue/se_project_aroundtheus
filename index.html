@@ -49,6 +49,14 @@
       </footer>
     </div>
 
+    <section class="modal modal__image">
+      <div class="modal__img-container">
+        <img class="modal__img" src="#" alt="#" />
+        <button class="modal__image-close" type="button"></button>
+        <p class="modal__image-text"></p>
+      </div>
+    </section>
+
     <section class="modal modal__edit">
       <div class="modal__container">
         <h3 class="modal__header">Edit Profile</h3>
@@ -75,8 +83,42 @@
             <button class="form__button">Save</button>
           </fieldset>
         </form>
+        <button class="modal__close-edit modal__close" type="click"></button>
+      </div>
+    </section>
+
+    <section class="modal modal_add-location">
+      <div class="modal__container">
+        <h3 class="modal__header">New Place</h3>
+        <form action="#" class="form modal__form-new-location" id="newLocation">
+          <fieldset class="form__fieldset">
+            <input
+              type="text"
+              class="form__input form__input-new-location"
+              id="title"
+              name="title"
+              placeholder="Title"
+              required
+            />
+            <span class="form__input-error title-input-error"></span>
+            <input
+              type="text"
+              class="form__input form__input-new-location"
+              id="image-url"
+              name="image-url"
+              placeholder="Image link"
+              required
+            />
+            <span class="form__input-error image-url-input-error"></span>
+          </fieldset>
+          <fieldset class="form__fieldset">
+            <button class="form__button modal__save-new-location-button">
+              Save
+            </button>
+          </fieldset>
+        </form>
         <button
-          class="modal__container_close-button modal__close"
+          class="modal__close modal__close-new-location"
           type="click"
         ></button>
       </div>
@@ -84,7 +126,8 @@
 
     <template id="card-template">
       <li class="card">
-        <img src="#" alt="#" class="card__image" />
+        <button type="button" class="card__trash"></button>
+        <img class="card__image" src="#" alt="#" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button type="button" class="card__like-button"></button>

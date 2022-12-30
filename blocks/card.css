@@ -4,7 +4,7 @@
   border-radius: 10px;
   list-style: none;
   overflow: hidden;
-
+  position: relative;
   font-family: "Inter", Arial, sans-serif;
 }
 
@@ -46,8 +46,34 @@
   border: none;
 }
 
+.card__like-button_active {
+  background-image: url("../images/heart-vector-active.svg");
+}
+
 .card__like-button:hover {
   opacity: 50%;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.card__like-button:focus {
+  filter: grayscale(100%);
+}
+
+.card__trash {
+  background-image: url("../images/trashCan.svg");
+  background-color: rgba(255, 255, 255, 0);
+  width: 18px;
+  height: 20px;
+  display: flex;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  border: none;
+  
+}
+
+.card__trash:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
