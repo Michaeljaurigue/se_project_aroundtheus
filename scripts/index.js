@@ -178,7 +178,7 @@ const saveNewLocation = (evt) => {
 saveLocationForm.addEventListener("submit", saveNewLocation);
 
 //Iamge Pop Up Variables
-const imageModal = document.querySelector(".modal__image");
+const imageModal = document.querySelector(".modal_image");
 
 //Image Pop Up Open Functions
 
