@@ -69,32 +69,32 @@ saveProfileEditForm.addEventListener("submit", handleProfileFormSubmit);
 const initialCards = [
   {
     name: "Yosemite Valley",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/yosemite-valley.jpg?raw=true",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Yosemite-Valley.jpg?raw=true",
   },
 
   {
     name: "Lake Louise",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/lake-louise.png?raw=true",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lake-Louise.jpg?raw=true",
   },
 
   {
     name: "Bald Mountains",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/bald-mountains.png?raw=true",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Bald-Mountains.jpg?raw=true",
   },
 
   {
     name: "Latemar",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/latemar.png?raw=true",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Latemar.jpg?raw=true",
   },
 
   {
     name: "Vanoise National Park",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/vanoise-national-park.png?raw=true",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Vanoise-National.jpg?raw=true",
   },
 
   {
     name: "Lago di Braies",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/lago-di-braies.png?raw=true",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lago-di-Braies.jpg?raw=true",
   },
 ];
 
