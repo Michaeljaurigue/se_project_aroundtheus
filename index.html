@@ -69,6 +69,8 @@
               name="name"
               placeholder="Name"
               required
+              minlength="2"
+              maxlength="40"
             />
             <input
               type="text"
@@ -77,6 +79,8 @@
               name="description"
               placeholder="Description"
               required
+              minlength="2"
+              maxlength="200"
             />
           </fieldset>
           <fieldset class="form__fieldset">
@@ -136,5 +140,6 @@
     </template>
 
     <script defer src="./scripts/index.js"></script>
+    <script defer src="./scripts/validate.js"></script>
   </body>
 </html>
