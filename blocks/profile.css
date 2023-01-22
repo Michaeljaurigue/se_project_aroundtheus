@@ -28,7 +28,7 @@
   align-items: center;
 }
 
-.profile__name {
+.profile__title {
   padding: unset;
   margin: 0 auto;
   width: fit-content;
@@ -45,7 +45,7 @@
   overflow: hidden;
 }
 
-.profile__edit {
+.profile__edit-button {
   background: transparent url(../images/edit-icon.svg) center no-repeat;
   height: 24px;
   width: 24px;
@@ -57,13 +57,13 @@
   padding: 5px;
 }
 
-.profile__edit:hover {
+.profile__edit-button:hover {
   opacity: 60%;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.profile__title {
+.profile__description {
   font-size: 18px;
   line-height: 1.2;
   grid-area: description;
@@ -126,12 +126,12 @@
     margin-top: 26.25px;
     margin-bottom: 14px;
   }
-  .profile__name {
+  .profile__title {
     font-size: 22px;
     line-height: 27px;
     max-width: 196px;
   }
-  .profile__title {
+  .profile__description {
     font-size: 14px;
     line-height: 17px;
     text-align: center;
@@ -143,7 +143,7 @@
     width: 282px;
   }
 
-  .profile__edit {
+  .profile__edit-button {
     width: 18px;
     height: 18px;
   }
