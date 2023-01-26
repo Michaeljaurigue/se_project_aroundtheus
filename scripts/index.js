@@ -1,4 +1,4 @@
-import { resetValidation } from "./validate.js";
+// import { resetValidation } from "./validate.js";
 import { config } from "./validate.js";
 
 ///Variables
@@ -47,25 +47,44 @@ const cardSelector = document.querySelector(".card");
 const cardsDisplayed = document.querySelector(".cards");
 
 //Modal Open and Close Functions
+
+function hideModalOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    hideModal(evt.target);
+  }
+}
+
+function hideModalonEscape(evt) {
+  if (evt.key === "Escape") {
+    const modalProfilePopUp = document.querySelector(".modal__opened");
+    closeModal(modalProfilePopUp);
+  }
+}
 function openedModal(modal) {
   modal.classList.add("modal__opened");
+  document.addEventListener("keydown", hideModalonEscape);
+  modal.addEventListener("mousedown", hideModalOnRemoteClick);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal__opened");
+  document.removeEventListener("keydown", hideModalonEscape);
+  modal.removeEventListener("mousedown", hideModalOnRemoteClick);
 }
 
 // Profile Pop Up Open Functions
 
+function fillProfileForm() {
+    const nameInput = document.querySelector('.form__input[name="name"]');
+  const jobInput = document.querySelector('.form__input[name="description"]');
+  nameInput.value = profileName;
+  jobInput.value = profileJob;
+}
 function openProfileModal() {
   const profileName = document.querySelector(".profile__title").textContent;
   const profileJob = document.querySelector(
     ".profile__description"
   ).textContent;
-  const nameInput = document.querySelector('.form__input[name="name"]');
-  const jobInput = document.querySelector('.form__input[name="description"]');
-  nameInput.value = profileName;
-  jobInput.value = profileJob;
   openedModal(modalProfilePopUp);
 }
 
@@ -78,6 +97,7 @@ function closeProfileModal() {
 }
 
 closeEditButton.addEventListener("click", closeProfileModal);
+
 // Profile Pop Up Submit Button
 
 function handleProfileFormSubmit(evt) {

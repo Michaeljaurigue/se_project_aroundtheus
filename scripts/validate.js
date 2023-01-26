@@ -8,11 +8,7 @@ export const config = {
   errorClass: "form__error_visible",
 };
 
-function showInputError(
-  formElement,
-  inputElement,
-  { inputErrorClass, errorClass }
-) {
+function showInputError(formElement, inputElement, { inputErrorClass, errorClass }) {
   const errorMessageEl = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputElement.validationMessage;
@@ -29,24 +25,33 @@ function hideInputError(
   errorMessageEl.textContent = "";
   errorMessageEl.classList.remove(errorClass);
 }
-
 function checkInputValidity(formElement, inputElement, options) {
-  if (!inputElement.validity.vald) {
-    return showInputError(formElement, inputElement, options);
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, options);
+  } else {
+    hideInputError(formElement, inputElement, options);
   }
-  hideInputError(formElement, inputElement, options);
 }
+
+// function checkInputValidity(formElement, inputElement, options) {
+//   if (!inputElement.validity.valid) {
+//     return showInputError(formElement, inputElement, options);
+//   }
+//   hideInputError(formElement, inputElement, options);
+// }
 
 function hasInvalidIinput(inputList) {
   return !inputList.every((inputElement) => inputElement.validity.valid);
 }
 
-function dsiableButton() {
-  //add class to disable it
+function dsiableButton(inputElements, submitButton, { inactiveButtonClass }) {
+  submitButton.classList.add(inactiveButtonClass);
+  submitButton.disabled = true;
 }
 
-function enableButton() {
-  //remove class to able it
+function enableButton(inputElements, submitButton, { inactiveButtonClass }) {
+  submitButton.classList.remove(inactiveButtonClass);
+  submitButton.disabled = false;
 }
 
 function toggleButtonState(
@@ -55,13 +60,24 @@ function toggleButtonState(
   { inactiveButtonClass }
 ) {
   if (hasInvalidIinput(inputElements)) {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
-    return;
+    dsiableButton(inputElements, submitButton, { inactiveButtonClass });
+  } else {
+    enableButton(inputElements, submitButton, { inactiveButtonClass });
   }
-  submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = false;
 }
+// function toggleButtonState(
+//   inputElements,
+//   submitButton,
+//   { inactiveButtonClass }
+// ) {
+//   if (hasInvalidIinput(inputElements)) {
+//     submitButton.classList.add(inactiveButtonClass);
+//     submitButton.disabled = true;
+//     return;
+//   }
+//   submitButton.classList.remove(inactiveButtonClass);
+//   submitButton.disabled = false;
+// }
 
 //destructing included here.. syntantic sugar
 
@@ -88,24 +104,24 @@ function enableValidation(options) {
   });
 }
 
-export function resetValidation(options) {
-  const fieldsetList = [
-    ...document.querySelectorAll(options.formFieldsetSelector),
-  ];
-  fieldsetList.forEach((fieldsetElement) => {
-    const buttonElement = fieldsetElement.querySelector(
-      options.submitButtonSelector
-    );
-    const inputList = [
-      ...fieldsetElement.querySelectorAll(options.inputSelector),
-    ];
+// export function resetValidation(options) {
+//   const fieldsetList = [
+//     ...document.querySelectorAll(options.formFieldsetSelector),
+//   ];
+//   fieldsetList.forEach((fieldsetElement) => {
+//     const buttonElement = fieldsetElement.querySelector(
+//       options.submitButtonSelector
+//     );
+//     const inputList = [
+//       ...fieldsetElement.querySelectorAll(options.inputSelector),
+//     ];
 
-    toggleButtonState(inputList, buttonElement, options);
+//     toggleButtonState(inputList, buttonElement, options);
 
-    inputList.forEach((inputElement) => {
-      hideInputError(fieldsetElement, inputElement, options);
-    });
-  });
-}
+//     inputList.forEach((inputElement) => {
+//       hideInputError(fieldsetElement, inputElement, options);
+//     });
+//   });
+// }
 
 enableValidation(config);

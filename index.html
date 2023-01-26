@@ -11,6 +11,7 @@
     <meta name="author" content="Michael Jaurigue" />
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
+
   <body class="page body preload">
     <div class="page__content">
       <header class="page__section header">
@@ -59,7 +60,7 @@
 
     <section class="modal modal_edit">
       <div class="modal__container" id="modal-profile-form">
-        <h3 class="modal__header">Edit Profile</h3>
+        <h3 class="modal__header">Edit profile</h3>
         <form action="#" class="form">
           <fieldset class="form__fieldset">
             <input
@@ -87,9 +88,10 @@
           </fieldset>
           <fieldset class="form__fieldset">
             <button
-              class="form__button form__submit-button"
+              class="form__button form__submit-button form__submit-button_inactive"
               type="submit"
               name="submit"
+              disabled
             >
               Save
             </button>
@@ -106,7 +108,7 @@
 
     <section class="modal modal_add-card">
       <div class="modal__container">
-        <h3 class="modal__header">New Place</h3>
+        <h3 class="modal__header">New place</h3>
         <form action="#" class="form modal__form-new-location" id="newLocation">
           <fieldset class="form__fieldset">
             <input
@@ -125,7 +127,7 @@
               class="form__input form__input_type_link"
               id="image-url"
               name="image-url"
-              placeholder="Image link"
+              placeholder="Image URL"
               required
             />
             <span class="form__error" id="image-url-error"></span>
@@ -161,7 +163,7 @@
       </li>
     </template>
 
-    <script type="module" defer src="./scripts/index.js"></script>
-    <script type="module" defer src="./scripts/validate.js"></script>
+    <script type="module"  src="./scripts/index.js"></script>
+    <script type="module"  src="./scripts/validate.js"></script>
   </body>
 </html>

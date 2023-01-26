@@ -1,10 +1,10 @@
 .form {
   padding: unset;
   margin: 0 auto;
-  width: 358px;
+  /* width: 358px; */
   display: flex;
   flex-direction: column;
-  margin-top: 54px;
+  margin-top: 34px;
   margin-bottom: 36.51px;
   margin-left: 36px;
   margin-right: 36px;
@@ -27,7 +27,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   height: 40.52px;
   width: 100%;
-  margin-bottom: 29.74px;
+  margin-bottom: 5px;
 
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
@@ -53,7 +53,7 @@
   color: #fff;
   padding-top: 14.278px;
   padding-bottom: 14.278px;
-  margin-top: 48px;
+  margin-top: 31.34px;
   cursor: pointer;
 }
 
@@ -63,10 +63,12 @@
 
 .form__error {
   font-size: 12px;
-  line-height: 15px;
+  /* line-height: 15px; */
   color: #ff0000;
-  position: absolute;
-  top: calc(100% + 5px);
+  /* top: calc(100% + 5px); */
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  /* font-size: 18px; */
   left: 0;
   transition: opcaticy 0.3s;
 }
@@ -85,9 +87,9 @@
 }
 
 .form__error_visible {
-  font-size: 12px;
-  line-height: 15px;
-  color: rgba(255, 0, 0, 1);
+  /* font-size: 12px; */
+  /* line-height: 15px; */
+  color: rgba(255, 0, 0);
   margin: 0;
 }
 
