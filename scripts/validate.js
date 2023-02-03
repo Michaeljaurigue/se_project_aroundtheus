@@ -108,24 +108,24 @@ function enableValidation(options) {
   });
 }
 
-// export function resetValidation(options) {
-//   const fieldsetList = [
-//     ...document.querySelectorAll(options.formFieldsetSelector),
-//   ];
-//   fieldsetList.forEach((fieldsetElement) => {
-//     const buttonElement = fieldsetElement.querySelector(
-//       options.submitButtonSelector
-//     );
-//     const inputList = [
-//       ...fieldsetElement.querySelectorAll(options.inputSelector),
-//     ];
+export function resetValidation(options) {
+  const fieldsetList = [
+    ...document.querySelectorAll(options.formFieldsetSelector),
+  ];
+  fieldsetList.forEach((fieldsetElement) => {
+    const buttonElement = fieldsetElement.querySelector(
+      options.submitButtonSelector
+    );
+    const inputList = [
+      ...fieldsetElement.querySelectorAll(options.inputSelector),
+    ];
 
-//     toggleButtonState(inputList, buttonElement, options);
+    toggleButtonState(inputList, buttonElement, options);
 
-//     inputList.forEach((inputElement) => {
-//       hideInputError(fieldsetElement, inputElement, options);
-//     });
-//   });
-// }
+    inputList.forEach((inputElement) => {
+      hideInputError(fieldsetElement, inputElement, options);
+    });
+  });
+}
 
 enableValidation(config);
