@@ -8,7 +8,11 @@ export const config = {
   errorClass: "form__error_visible",
 };
 
-function showInputError(formElement, inputElement, { inputErrorClass, errorClass }) {
+function showInputError(
+  formElement,
+  inputElement,
+  { inputErrorClass, errorClass }
+) {
   const errorMessageEl = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputElement.validationMessage;
@@ -44,7 +48,7 @@ function hasInvalidIinput(inputList) {
   return !inputList.every((inputElement) => inputElement.validity.valid);
 }
 
-function dsiableButton(inputElements, submitButton, { inactiveButtonClass }) {
+function disableButton(inputElements, submitButton, { inactiveButtonClass }) {
   submitButton.classList.add(inactiveButtonClass);
   submitButton.disabled = true;
 }
@@ -60,7 +64,7 @@ function toggleButtonState(
   { inactiveButtonClass }
 ) {
   if (hasInvalidIinput(inputElements)) {
-    dsiableButton(inputElements, submitButton, { inactiveButtonClass });
+    disableButton(inputElements, submitButton, { inactiveButtonClass });
   } else {
     enableButton(inputElements, submitButton, { inactiveButtonClass });
   }

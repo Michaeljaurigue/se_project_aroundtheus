@@ -40,7 +40,6 @@ const currentNameText = profileElement.querySelector(".profile__title");
 
 const currentAboutText = profileElement.querySelector(".profile__description");
 
-const formTitleText = addCardPopUp.querySelector(".form__input_type_place");
 const formLinkText = addCardPopUp.querySelector(".form__input_type_link");
 
 const cardSelector = document.querySelector(".card");
@@ -50,7 +49,7 @@ const cardsDisplayed = document.querySelector(".cards");
 
 function hideModalOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
-    hideModal(evt.target);
+    hideModalonEscape(evt.target);
   }
 }
 
@@ -75,7 +74,7 @@ function closeModal(modal) {
 // Profile Pop Up Open Functions
 
 function fillProfileForm() {
-    const nameInput = document.querySelector('.form__input[name="name"]');
+  const nameInput = document.querySelector('.form__input[name="name"]');
   const jobInput = document.querySelector('.form__input[name="description"]');
   nameInput.value = profileName;
   jobInput.value = profileJob;
@@ -216,6 +215,7 @@ const saveNewLocation = (evt) => {
   cardsList.prepend(card);
   addLocationForm.reset();
   closeNewLocationModal();
+  toggleButtonState();
 };
 
 addCardPopUp.addEventListener("submit", saveNewLocation);
