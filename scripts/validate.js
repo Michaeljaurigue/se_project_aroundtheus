@@ -1,3 +1,5 @@
+import { saveNewLocation } from "./index.js";
+
 export const config = {
   formSelector: ".form",
   formFieldSelector: ".form__fieldset",
@@ -58,7 +60,7 @@ function enableButton(inputElements, submitButton, { inactiveButtonClass }) {
   submitButton.disabled = false;
 }
 
-function toggleButtonState(
+export function toggleButtonState(
   inputElements,
   submitButton,
   { inactiveButtonClass }
@@ -67,6 +69,7 @@ function toggleButtonState(
     disableButton(inputElements, submitButton, { inactiveButtonClass });
   } else {
     enableButton(inputElements, submitButton, { inactiveButtonClass });
+    saveNewLocation(inputElements, submitButton, { inactiveButtonClass });
   }
 }
 // function toggleButtonState(
@@ -108,24 +111,24 @@ function enableValidation(options) {
   });
 }
 
-export function resetValidation(options) {
-  const fieldsetList = [
-    ...document.querySelectorAll(options.formFieldsetSelector),
-  ];
-  fieldsetList.forEach((fieldsetElement) => {
-    const buttonElement = fieldsetElement.querySelector(
-      options.submitButtonSelector
-    );
-    const inputList = [
-      ...fieldsetElement.querySelectorAll(options.inputSelector),
-    ];
+// export function resetValidation(options) {
+//   const fieldsetList = [
+//     ...document.querySelectorAll(options.formFieldsetSelector),
+//   ];
+//   fieldsetList.forEach((formSelector) => {
+//     const buttonElement = formSelector.querySelector(
+//       options.submitButtonSelector
+//     );
+//     const inputList = [
+//       ...formSelector.querySelectorAll(options.inputSelector),
+//     ];
 
-    toggleButtonState(inputList, buttonElement, options);
+//     toggleButtonState(inputList, buttonElement, options);
 
-    inputList.forEach((inputElement) => {
-      hideInputError(fieldsetElement, inputElement, options);
-    });
-  });
-}
+//     inputList.forEach((inputElement) => {
+//       hideInputError(fieldsetElement, inputElement, options);
+//     });
+//   });
+// }
 
 enableValidation(config);

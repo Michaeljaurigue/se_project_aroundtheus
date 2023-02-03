@@ -1,5 +1,5 @@
-import { resetValidation } from "./validate.js";
-import { config } from "./validate.js";
+import { config, toggleButtonState} from "./validate.js";
+// import { resetValidation } from "./validate.js";
 
 ///Variables
 // Profile Pop Up Variables
@@ -200,7 +200,7 @@ closeNewLocationButton.addEventListener("click", closeNewLocationModal);
 
 //Save Location Functions
 
-const saveNewLocation = (evt) => {
+export const saveNewLocation = (evt, inputElements, submitButton, { inactiveButtonClass }) => {
   evt.preventDefault();
   const titleInput = document.getElementById("title").value;
   const imageUrlInput = document.getElementById("image-url").value;
