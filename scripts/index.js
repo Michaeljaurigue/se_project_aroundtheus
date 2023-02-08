@@ -211,7 +211,7 @@ const saveNewLocation = (evt) => {
   closeNewLocationModal();
   toggleButtonState(
     [document.getElementById("title"), document.getElementById("image-url")],
-    saveNewLocation,
+    addCardPopUp.querySelector(".form__submit-button"),
     config
   );
 };
