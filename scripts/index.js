@@ -1,4 +1,4 @@
-import { config, toggleButtonState} from "./validate.js";
+import { config, toggleButtonState } from "./validate.js";
 // import { resetValidation } from "./validate.js";
 
 ///Variables
@@ -200,7 +200,7 @@ closeNewLocationButton.addEventListener("click", closeNewLocationModal);
 
 //Save Location Functions
 
-export const saveNewLocation = (evt, inputElements, submitButton, { inactiveButtonClass }) => {
+const saveNewLocation = (evt) => {
   evt.preventDefault();
   const titleInput = document.getElementById("title").value;
   const imageUrlInput = document.getElementById("image-url").value;
@@ -209,7 +209,11 @@ export const saveNewLocation = (evt, inputElements, submitButton, { inactiveButt
   cardsList.prepend(card);
   addLocationForm.reset();
   closeNewLocationModal();
-  toggleButtonState();
+  toggleButtonState(
+    [document.getElementById("title"), document.getElementById("image-url")],
+    saveNewLocation,
+    config
+  );
 };
 
 addCardPopUp.addEventListener("submit", saveNewLocation);

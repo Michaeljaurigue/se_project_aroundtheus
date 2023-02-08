@@ -1,5 +1,3 @@
-import { saveNewLocation } from "./index.js";
-
 export const config = {
   formSelector: ".form",
   formFieldSelector: ".form__fieldset",
@@ -60,16 +58,12 @@ function enableButton(inputElements, submitButton, { inactiveButtonClass }) {
   submitButton.disabled = false;
 }
 
-export function toggleButtonState(
-  inputElements,
-  submitButton,
-  { inactiveButtonClass }
-) {
+export function toggleButtonState(inputElements, submitButton, { inactiveButtonClass }) {
   if (hasInvalidIinput(inputElements)) {
-    disableButton(inputElements, submitButton, { inactiveButtonClass });
+    disableButton;
   } else {
     enableButton(inputElements, submitButton, { inactiveButtonClass });
-    saveNewLocation(inputElements, submitButton, { inactiveButtonClass });
+    // saveNewLocation(inputElements, submitButton, { inactiveButtonClass });
   }
 }
 // function toggleButtonState(
