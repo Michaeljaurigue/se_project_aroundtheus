@@ -78,6 +78,7 @@ function fillProfileForm() {
   jobInput.value = profileJob;
 }
 function openProfileModal() {
+  fillProfileForm();
   openModal(modalProfilePopUp);
 }
 
