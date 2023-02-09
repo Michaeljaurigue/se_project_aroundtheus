@@ -74,8 +74,8 @@ function closeModal(modal) {
 // Profile Pop Up Open Functions
 
 function fillProfileForm() {
-  nameInput.value = profileName;
-  jobInput.value = profileJob;
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
 }
 function openProfileModal() {
   fillProfileForm();
