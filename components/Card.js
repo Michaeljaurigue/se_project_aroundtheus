@@ -10,20 +10,20 @@ const handleEscUp = (evt) => {
   const activePopup = document.querySelector(".modal__opened");
 
   if (evt.which === ESC_KEYCODE) {
-    closeModal(activePopup);
+    action(activePopup);
   }
 
-  isEscEvent(evt, closeModal);
+  isEscEvent(evt, closeModalWIndow);
 };
 
-const openModal = (modal) => {
-  modal.classList.add(".modal__opened");
-  document.addEventListener("keyup", handleEscUp);
+const openModalWindow = (imageModalWindow) => {
+  imageModalWindow.classList.add(".modal__opened");
+  document.addEventListener("keydown", handleEscUp);
 };
 
-const closeModal = (modal) => {
-  modal.classList.remove(".modal__opened");
-  document.removeEventListener("keyup", handleEscUp);
+const closeModalWIndow = (imageModalWindow) => {
+  imageModalWindow.classList.remove(".modal__opened");
+  document.removeEventListener("keydown", handleEscUp);
 };
 
 // const isEscEvent = (evt, action) => {
@@ -32,6 +32,18 @@ const closeModal = (modal) => {
 //         action(activePopup);
 //     }
 // };
+
+
+
+
+
+
+
+
+
+
+
+
 
 class Card {
   constructor(data, cardSelector) {
@@ -42,17 +54,17 @@ class Card {
   }
 
   _getTemplate() {
-    // const cardElement = document
-    //   .querySelector(this._cardSelector)
-    //   .content.querySelector(".card")
-    //   .cloneNode(true);
-
-    // return cardElement;
-
-    return document
+    const cardElement = document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+
+    return cardElement;
+
+    // return document
+    //   .querySelector(this._cardSelector)
+    //   .content.querySelector(".card")
+    //   .cloneNode(true);
   }
 
   _setEventListeners() {
@@ -83,36 +95,48 @@ class Card {
     this._element
       .querySelector(".card__image")
       .addEventListener("click", () => this._handlePreviewPicture());
-  };
+  }
 
   _handleLikeIcon() {
     this._element
       .querySelector(".card__like-button_active")
       .classList.toggle(".card__like-button_active");
-  };
+  }
 
   _handleDeleteCard() {
-    this._element.querySelector(".card__trash").classList.toggle("card");
-  };
+    this._element.remove();
+    this._element = null;
+    // this._element.querySelector(".card__trash").classList.toggle(".card");
+  }
+
+  // _handlePreviewPicture() {
+  //   this._element;
+  //   cardImage.src = this._link;
+  //   cardImage.alt = `Photo of ${this._name}`;
+  //   cardTitle.textContent = this._name;
+  //   imageModalWindow.classList.add(".card");
+  //   document.addEventListener("keyup", openModal);
+  // }
 
   _handlePreviewPicture() {
-    this._element;
-    cardImage.setAttribute("src", data.link);
-    cardImage.setAttribute("alt", `Photo of ${data.name}`);
-    cardTitle.textContent = data.name;
-    openModal(imageModalWindow);
-  };
+    this._element.setAttribute("src", this._link);
+    this._element.setAttribute("alt", `Photo of ${this._name}`);
+    this._element.textContent = this._name;
+    openImageModal(imageModalWindow);
+  }
 
   getView() {
     this._element = this._getTemplate();
 
     this._setEventListeners();
 
-    this._element.querySelector(".card__image").style.backgroundImage = `url(${this._link})`;
+    this._element.querySelector(
+      ".card__image"
+    ).style.backgroundImage = `url(${this._link})`;
     this._element.querySelector(".card__title").textContent = this._name;
 
     return this._element;
-  };
-};
+  }
+}
 
 export default Card;

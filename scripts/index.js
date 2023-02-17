@@ -1,6 +1,7 @@
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 
+
 // import { config, toggleButtonState } from "./validate.js";
 // import { resetValidation } from "./validate.js";
 
@@ -8,6 +9,7 @@ import Card from "../components/Card.js";
 //Variables
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Profile Pop Up Variables
+
 const modalProfilePopUp = document.querySelector(".modal_edit");
 const formProfileElement = modalProfilePopUp.querySelector(".form");
 const addCardPopUp = document.querySelector(".modal_add-card");
@@ -63,6 +65,19 @@ const addFormValidator = new FormValidator(validationSettings, addFormElement);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+
+// const newCard = new Card();
+
+// function createCard(card) {
+//   const newCard = new Card(
+//     card,
+//     cardSelector,
+//     handleCardLike,
+//     handleDisplayImage,
+//     handleDeleteCard
+//   );
+//   return newCard.getCardElement();
+// }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Profile Pop Up Open Functions
@@ -122,7 +137,6 @@ formProfileElement.addEventListener("submit", handleProfileFormSubmit);
 //     wrap.prependnew Card(data, "#card-template").getView()
 //   };
 
-  
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -153,7 +167,9 @@ const initialCards = [
     name: "Lago di Braies",
     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lago-di-Braies.jpg?raw=true",
   },
-];
+]
+
+// renderCard(data);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Template of Cards
@@ -163,20 +179,19 @@ const cardSelector = document.querySelector("#card-template");
 // const cardsDisplayed = document.querySelector(".cards");
 
 const cardsList = document.querySelector(".cards__list");
-  
+
 const renderCard = (data, wrap) => {
-  const card = new Card(data, cardSelector);
-  wrap.prepend(card.getView());
+  const card = new Card(data, "#card-template").getView();
+  wrap.prepend(card);
 };
 
-// initialCards.forEach((data) => {
-//   renderCard(data)
-// });
+initialCards.forEach((data) => {
+  renderCard(data, cardSelector)
+});
 
 // initialCards.forEach((cardObject) => {
 //   renderCard(cardObject, placesWrap)
 // });
-
 
 initialCards.forEach((cardObject) => {
   const card = getCardElement(cardObject);
@@ -206,8 +221,6 @@ function getCardElement(data) {
 
   return card;
 }
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Add a Location Pop Up Functions //STAYS INSIDE INDEX.JS
@@ -263,6 +276,7 @@ function closeModal(modal) {
 //Save Location Functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 const saveNewLocation = (evt) => {
   evt.preventDefault();
   const titleInput = document.getElementById("title").value;
@@ -272,10 +286,10 @@ const saveNewLocation = (evt) => {
   cardsList.prepend(card);
   addLocationForm.reset();
   closeNewLocationModal();
-  toggleButtonState(
+  addFormValidator._toggleButtonState(
     [document.getElementById("title"), document.getElementById("image-url")],
     addCardPopUp.querySelector(".form__submit-button"),
-    config
+    validationSettings
   );
 };
 
