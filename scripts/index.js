@@ -1,9 +1,8 @@
-import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 
+import FormValidator from "../components/FormValidator.js";
 
-// import { config, toggleButtonState } from "./validate.js";
-// import { resetValidation } from "./validate.js";
+// import { openModal, closeModal } from "../utils/utils.js";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Variables
@@ -26,6 +25,7 @@ const bodyElement = document.querySelector(".body");
 //Add a Location Pop Up Variables
 const addLocationButton = document.querySelector(".profile__add-button");
 const addLocationForm = document.querySelector(".modal__form-new-location");
+
 //Form Input Variables
 const formNameText = modalProfilePopUp.querySelector(".form__input_type_name");
 const formAboutText = modalProfilePopUp.querySelector(
@@ -53,9 +53,6 @@ const editFormElement = modalProfilePopUp.querySelector(".form");
 
 const addFormElement = addCardPopUp.querySelector(".form");
 
-// console.log(editFormElement);
-// console.log(addFormElement);
-
 const editFormValidator = new FormValidator(
   validationSettings,
   editFormElement
@@ -65,19 +62,6 @@ const addFormValidator = new FormValidator(validationSettings, addFormElement);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-
-// const newCard = new Card();
-
-// function createCard(card) {
-//   const newCard = new Card(
-//     card,
-//     cardSelector,
-//     handleCardLike,
-//     handleDisplayImage,
-//     handleDeleteCard
-//   );
-//   return newCard.getCardElement();
-// }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Profile Pop Up Open Functions
@@ -123,20 +107,6 @@ formProfileElement.addEventListener("submit", handleProfileFormSubmit);
 //Card
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// const cardFormSubmitHandler = (evt) => {
-//   evt.preventDefault();
-
-//   renderCard({
-//     name: cardNameInputValue.value,
-//     link: cardLinkInputValue.value
-//   }, placesWrap);
-//   toggleModalWindow(cardFormModalWindow);
-//   };
-
-// const renderCard = (data, wrap) => {
-//     wrap.prependnew Card(data, "#card-template").getView()
-//   };
-
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -167,60 +137,20 @@ const initialCards = [
     name: "Lago di Braies",
     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lago-di-Braies.jpg?raw=true",
   },
-]
-
-// renderCard(data);
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Template of Cards
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+];
 
 const cardSelector = document.querySelector("#card-template");
-// const cardsDisplayed = document.querySelector(".cards");
+const cardsList = cardSelector.querySelector("#card");
 
-const cardsList = document.querySelector(".cards__list");
+const createCard = (data) => {
+  const card = new Card(data, "#card-template").getCardElement();
 
-const renderCard = (data, wrap) => {
-  const card = new Card(data, "#card-template").getView();
-  wrap.prepend(card);
+  cardSelector.prepend(card);
 };
 
 initialCards.forEach((data) => {
-  renderCard(data, cardSelector)
+  createCard(data);
 });
-
-// initialCards.forEach((cardObject) => {
-//   renderCard(cardObject, placesWrap)
-// });
-
-initialCards.forEach((cardObject) => {
-  const card = getCardElement(cardObject);
-  cardsList.appendChild(card);
-});
-
-function getCardElement(data) {
-  const cardElement = document.querySelector("#card-template").content;
-  const card = cardElement.querySelector(".card").cloneNode(true);
-  const cardTitle = card.querySelector(".card__title");
-  cardTitle.textContent = data.name;
-  const cardImage = card.querySelector(".card__image");
-
-  cardImage.setAttribute("src", data.link);
-  cardImage.setAttribute("alt", `Photo of ${data.name}`);
-
-  const heart = card.querySelector(".card__like-button");
-  const trash = card.querySelector(".card__trash");
-
-  cardImage.addEventListener("click", (evt) => openImageModal(evt, data));
-  trash.addEventListener("click", (evt) =>
-    evt.target.closest(".card").remove()
-  );
-  heart.addEventListener("click", (evt) =>
-    evt.target.classList.toggle("card__like-button_active")
-  );
-
-  return card;
-}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Add a Location Pop Up Functions //STAYS INSIDE INDEX.JS
@@ -260,6 +190,7 @@ function hideModalOnEscape(evt) {
     closeModal(modalProfilePopUp);
   }
 }
+
 function openModal(modal) {
   modal.classList.add("modal__opened");
   document.addEventListener("keydown", hideModalOnEscape);
@@ -271,11 +202,9 @@ function closeModal(modal) {
   document.removeEventListener("keydown", hideModalOnEscape);
   modal.removeEventListener("mousedown", hideModalOnRemoteClick);
 }
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Save Location Functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 const saveNewLocation = (evt) => {
   evt.preventDefault();
@@ -323,4 +252,4 @@ function closeImageModal() {
 
 closeImageModalButton.addEventListener("click", closeImageModal);
 
-// const cardSelector = '#card-template';
+export { openImageModal };

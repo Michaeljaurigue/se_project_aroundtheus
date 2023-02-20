@@ -1,8 +1,5 @@
 .cards {
-  margin-top: 47.25px;
-}
-
-.cards__list {
+  margin-top: 47.25px; 
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);

@@ -42,7 +42,16 @@
         </section>
 
         <section class="cards page__section">
-          <ul class="cards__list"></ul>
+          <template id="card-template">
+            <article class="card">
+              <img class="card__image" src="#" alt="#" />
+              <button type="button" class="card__trash"></button>
+              <div class="card__description">
+                <h2 class="card__title"></h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </article>
+          </template>
         </section>
       </main>
       <footer class="footer page__section">
@@ -151,17 +160,6 @@
         ></button>
       </div>
     </section>
-
-    <template id="card-template">
-      <li class="card">
-        <img class="card__image" src="#" alt="#" />
-        <button type="button" class="card__trash"></button>
-        <div class="card__description">
-          <h2 class="card__title"></h2>
-          <button type="button" class="card__like-button"></button>
-        </div>
-      </li>
-    </template>
 
     <script type="module" src="./scripts/index.js"></script>
     <!-- <script type="module"  src="./scripts/validate.js"></script> -->

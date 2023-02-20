@@ -8,7 +8,6 @@ class FormValidator {
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
-    
   }
 
   _toggleButtonState() {
@@ -21,35 +20,14 @@ class FormValidator {
     }
   }
 
-  //   if (this._hasInvalidInput(this._inputElements)) {
-  //     disableButton(this._submitButton, this._inactiveButtonClass);
-  //   } else {
-  //     enableButton(this._submitButton, this._inactiveButtonClass);
-  //     // saveNewLocation(inputElements, submitButton, { inactiveButtonClass });
-  //   }
-  // }
-  //   if (this._hasInvalidInput(this._inputElements)) {
-  //     this._submitButton.setAttribute("disabled", true);
-  //     this._submitButton.classList.add(this._settings.inactiveButtonClass);
-  //   } else {
-  //     this._submitButton.removeAttribute("disabled");
-  //     this._submitButton.classList.remove(this._settings.inactiveButtonClass);
-  //   }
-  // }
-
   _showInputError(inputElement, errorMessage) {
     const errorMessageEl = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
-    // inputElement.classList.add(this.settings.inputErrorClass);
     errorMessageEl.textContent = errorMessage;
-    // errorMessageEl.classList.add(this.settings.errorClass);
     inputElement.classList.add(this._inputErrorClass);
     errorMessageEl.classList.add(this._settings.errorClass);
   }
-
-  //or....     inputElement.classList.add(this._inputErrorClass);
-  //  errorMessageEl.classList.add(this._settings.errorClass);
 
   _hideInputError(inputElement) {
     const errorMessageEl = this._fieldsetElement.querySelector(
@@ -104,16 +82,5 @@ class FormValidator {
     this._setEventListeners();
   }
 }
-
-// resetValidation() {
-//     this._toggleButtonState();
-
-//     this._inputElements.forEach((inputElement) => {
-//         this._hideInputError(inputElement);
-//     });
-// }
-
-// const editFormValidator = new FormValidator();
-// editFormValidator.enableValidation();
 
 export default FormValidator;
