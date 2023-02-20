@@ -2,7 +2,7 @@ import Card from "../components/Card.js";
 
 import FormValidator from "../components/FormValidator.js";
 
-// import { openModal, closeModal } from "../utils/utils.js";
+import { openModal, closeModal } from "../utils/utils.js";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Variables
@@ -107,67 +107,35 @@ formProfileElement.addEventListener("submit", handleProfileFormSubmit);
 //Card
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// const initialCards = [
-//   {
-//     name: "Yosemite Valley",
-//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Yosemite-Valley.jpg?raw=true",
-//   },
-
-//   {
-//     name: "Lake Louise",
-//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lake-Louise.jpg?raw=true",
-//   },
-
-//   {
-//     name: "Bald Mountains",
-//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Bald-Mountains.jpg?raw=true",
-//   },
-
-//   {
-//     name: "Latemar",
-//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Latemar.jpg?raw=true",
-//   },
-
-//   {
-//     name: "Vanoise National Park",
-//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Vanoise-National.jpg?raw=true",
-//   },
-
-//   {
-//     name: "Lago di Braies",
-//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lago-di-Braies.jpg?raw=true",
-//   },
-// ];
-
 const initialCards = [
   {
     name: "Yosemite Valley",
-    link: "../images/Pixabay-Yosemite-Valley.jpg",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Yosemite-Valley.jpg?raw=true",
   },
 
   {
     name: "Lake Louise",
-    link: "../images/Pixabay-Lake-Louise.jpg",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lake-Louise.jpg?raw=true",
   },
 
   {
     name: "Bald Mountains",
-    link: "../images/Pixabay-Bald-Mountains.jpg",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Bald-Mountains.jpg?raw=true",
   },
 
   {
     name: "Latemar",
-    link: "../images/Pixabay-Latemar.jpg",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Latemar.jpg?raw=true",
   },
 
   {
     name: "Vanoise National Park",
-    link: "../images/Pixabay-Vanoise-National.jpg",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Vanoise-National.jpg?raw=true",
   },
 
   {
     name: "Lago di Braies",
-    link: "../images/Pixabay-Lago-di-Braies.jpg",
+    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lago-di-Braies.jpg?raw=true",
   },
 ];
 
@@ -206,34 +174,6 @@ const closeNewLocationButton = document.querySelector(
 
 closeNewLocationButton.addEventListener("click", closeNewLocationModal);
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Modal Open and Close Functions
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function hideModalOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget) {
-    closeModal(evt.target);
-  }
-}
-
-function hideModalOnEscape(evt) {
-  if (evt.key === "Escape") {
-    const modalProfilePopUp = document.querySelector(".modal__opened");
-    closeModal(modalProfilePopUp);
-  }
-}
-
-function openModal(modal) {
-  modal.classList.add("modal__opened");
-  document.addEventListener("keydown", hideModalOnEscape);
-  modal.addEventListener("mousedown", hideModalOnRemoteClick);
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal__opened");
-  document.removeEventListener("keydown", hideModalOnEscape);
-  modal.removeEventListener("mousedown", hideModalOnRemoteClick);
-}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Save Location Functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,8 @@
-import { openImageModal } from "../scripts/index.js";
+import { openModal } from "../utils/utils.js";
+
+const imageModal = document.querySelector("#image-modal");
+const modalCardImage = imageModal.querySelector(".modal__image-img");
+const modalCardName = imageModal.querySelector(".modal__image-text");
 
 class Card {
   constructor(data, cardSelector) {
@@ -7,15 +11,6 @@ class Card {
 
     this._cardSelector = cardSelector;
   }
-
-  // _getTemplate() {
-  //   const cardElement = document
-  //     .querySelector(this._cardSelector)
-  //     .content.querySelector(".card")
-  //     .cloneNode(true);
-
-  //   return cardElement;
-  // }
 
   _getTemplate() {
     const template = document.querySelector(this._cardSelector);
@@ -38,43 +33,28 @@ class Card {
   }
 
   _handleLikeIcon() {
-    // e.target.classList.toggle(".card__like-button_active");
-    this._element
-      .querySelector(".card__like-button")
-      .classList.add(".card__like-button_active");
+    this._likeButton.classList.toggle(".card__like-button_active");
   }
 
   _handleDeleteCard() {
-    // const card = e.target.closest(".card");
-    // card.remove();
     this._element.remove();
     this._element = null;
-    //this._element.querySelector(".card__trash").classList.toggle(".card");
   }
 
-  _handlePreviewPicture() {
-    // document.querySelector(".card__image").src = `Photo of ${this._name}`;
-    // document.querySelector(".card__title").alt = this._link;
-    // this._element.setAttribute("src", this._link);
-    // this._element.setAttribute("alt", `Photo of ${this._name}`);
-    this._element.querySelector(".card__image").setAttribute("src", this._link);
-    this._element
-      .querySelector(".card__image")
-      .setAttribute("alt", `Photo of ${this._name}`);
+  _handlePreviewPicture(imageModal) {
+    modalCardImage.src = this._link;
+    modalCardImage.alt = `Photo of ${this._name}`;
+    modalCardName.textContent = this._name;
 
-    this._element.textContent = this._name;
-    openImageModal(imageModalWindow);
+    openModal(imageModal);
   }
 
   getCardElement() {
     this._element = this._getTemplate();
 
-    // this._element.querySelector(
-    //   ".card__image"
-    // ).style.backgroundImage = `url(${this._link})`;
-    // this._element.querySelector(".card__title").textContent = this._name;
-
-    this._element.querySelector(".card__image").src = this._link;
+    this._element.querySelector(
+      ".card__image"
+    ).style.backgroundImage = `url(${this._link})`;
     this._element.querySelector(".card__title").textContent = this._name;
 
     this._setEventListeners();

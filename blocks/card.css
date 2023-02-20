@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  /* list-style: none; */
+  list-style: none;
   overflow: hidden;
   position: relative;
+  font-family: "Inter", Arial, sans-serif;
 }
 
 .card__title {
