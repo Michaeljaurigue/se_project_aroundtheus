@@ -107,40 +107,72 @@ formProfileElement.addEventListener("submit", handleProfileFormSubmit);
 //Card
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// const initialCards = [
+//   {
+//     name: "Yosemite Valley",
+//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Yosemite-Valley.jpg?raw=true",
+//   },
+
+//   {
+//     name: "Lake Louise",
+//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lake-Louise.jpg?raw=true",
+//   },
+
+//   {
+//     name: "Bald Mountains",
+//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Bald-Mountains.jpg?raw=true",
+//   },
+
+//   {
+//     name: "Latemar",
+//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Latemar.jpg?raw=true",
+//   },
+
+//   {
+//     name: "Vanoise National Park",
+//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Vanoise-National.jpg?raw=true",
+//   },
+
+//   {
+//     name: "Lago di Braies",
+//     link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lago-di-Braies.jpg?raw=true",
+//   },
+// ];
+
 const initialCards = [
   {
     name: "Yosemite Valley",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Yosemite-Valley.jpg?raw=true",
+    link: "../images/Pixabay-Yosemite-Valley.jpg",
   },
 
   {
     name: "Lake Louise",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lake-Louise.jpg?raw=true",
+    link: "../images/Pixabay-Lake-Louise.jpg",
   },
 
   {
     name: "Bald Mountains",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Bald-Mountains.jpg?raw=true",
+    link: "../images/Pixabay-Bald-Mountains.jpg",
   },
 
   {
     name: "Latemar",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Latemar.jpg?raw=true",
+    link: "../images/Pixabay-Latemar.jpg",
   },
 
   {
     name: "Vanoise National Park",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Vanoise-National.jpg?raw=true",
+    link: "../images/Pixabay-Vanoise-National.jpg",
   },
 
   {
     name: "Lago di Braies",
-    link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Lago-di-Braies.jpg?raw=true",
+    link: "../images/Pixabay-Lago-di-Braies.jpg",
   },
 ];
 
-const cardSelector = document.querySelector("#card-template");
-const cardsList = cardSelector.querySelector("#card");
+const cardSelector = document.querySelector(".cards__list");
+const cardsList = cardSelector.querySelector(".card");
 
 const createCard = (data) => {
   const card = new Card(data, "#card-template").getCardElement();
@@ -149,7 +181,7 @@ const createCard = (data) => {
 };
 
 initialCards.forEach((data) => {
-  createCard(data);
+  createCard(data, cardSelector);
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
