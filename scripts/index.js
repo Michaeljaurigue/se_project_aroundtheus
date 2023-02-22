@@ -36,6 +36,15 @@ const currentAboutText = profileElement.querySelector(".profile__description");
 const formLinkText = addCardPopUp.querySelector(".form__input_type_link");
 const ESC_KEYCODE = 27;
 
+//Image Pop Up Open Functions
+
+const openImageModal = (data) => {
+  imagePreview.src = data.link;
+  imagePreview.alt = `Photo of ${data.name}`;
+  imageText.textContent = data.name;
+  openModal(imageModalPopUp);
+};
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Validaion
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -143,7 +152,11 @@ const cardSelector = document.querySelector(".cards__list");
 const cardsList = cardSelector.querySelector(".card");
 
 const createCard = (data) => {
-  const card = new Card(data, "#card-template").getCardElement();
+  const card = new Card(
+    data,
+    "#card-template",
+    openImageModal
+  ).getCardElement();
 
   cardSelector.prepend(card);
 };
@@ -201,15 +214,6 @@ addCardPopUp.addEventListener("submit", saveNewLocation);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const imageModalPopUp = document.querySelector(".modal_image");
-
-//Image Pop Up Open Functions
-
-const openImageModal = (evt, data) => {
-  imagePreview.src = evt.target.src;
-  imagePreview.alt = `Photo of ${data.name}`;
-  imageText.textContent = data.name;
-  openModal(imageModalPopUp);
-};
 
 //Image Pop Up Close Functions
 
