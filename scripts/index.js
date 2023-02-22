@@ -188,26 +188,40 @@ const closeNewLocationButton = document.querySelector(
 closeNewLocationButton.addEventListener("click", closeNewLocationModal);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Save Location Functions
+//Add New Location Card
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const saveNewLocation = (evt) => {
+const addCardModal = document.querySelector(".modal_add-card");
+
+const modalAddCardForm = addCardModal.querySelector(
+  ".modal__form-new-location"
+);
+
+const modalAddCardTitleInput = modalAddCardForm.querySelector("#title");
+
+const modalAddCardLinkInput = modalAddCardForm.querySelector("#image-url");
+
+const profileAddCardBtn = document.querySelector("#submit-button");
+
+profileAddCardBtn.addEventListener("click", (evt) => {
+  openModal(addCardModal);
+});
+
+modalAddCardForm.addEventListener("submit", handleAddCardSubmit);
+
+function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const titleInput = document.getElementById("title").value;
-  const imageUrlInput = document.getElementById("image-url").value;
-  const cardObject = { link: imageUrlInput, name: titleInput };
-  const card = getCardElement(cardObject);
-  cardsList.prepend(card);
-  addLocationForm.reset();
-  closeNewLocationModal();
+  const name = modalAddCardTitleInput.value;
+  const link = modalAddCardLinkInput.value;
+  createCard({ name, link }, cardSelector);
+  closeNewLocationModal(addCardModal);
+  modalAddCardForm.reset();
   addFormValidator._toggleButtonState(
     [document.getElementById("title"), document.getElementById("image-url")],
     addCardPopUp.querySelector(".form__submit-button"),
     validationSettings
   );
-};
-
-addCardPopUp.addEventListener("submit", saveNewLocation);
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Iamge Pop Up Variables
