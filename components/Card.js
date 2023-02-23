@@ -1,7 +1,7 @@
-import { openModal } from "../utils/utils.js";
-
 const imageModal = document.querySelector("#image-modal");
+
 const modalCardImage = imageModal.querySelector(".modal__image-img");
+
 const modalCardName = imageModal.querySelector(".modal__image-text");
 
 class Card {
@@ -10,11 +10,13 @@ class Card {
     this._link = data.link;
     this._handlePreviewPicture = handlePreviewPicture;
     this._cardSelector = cardSelector;
+    this._alt = data.name;
   }
 
   _getTemplate() {
     const template = document.querySelector(this._cardSelector);
     const cardElement = template.content.firstElementChild.cloneNode(true);
+
     return cardElement;
   }
 
@@ -35,7 +37,6 @@ class Card {
   }
 
   _handleLikeIcon() {
-    console.log("_handleLikeIcon");
     this._likeButton.classList.toggle("card__like-button_active");
   }
 
@@ -49,9 +50,22 @@ class Card {
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__title").textContent = this._name;
 
+    this._element.querySelector(".card__image").alt = this._alt;
+
     this._setEventListeners();
+
     return this._element;
   }
+
+  // _handleOpenModal() {
+  //   popupText.textContent = this._name;
+  //   super._handleOpenModal();
+  // }
+
+  // _handleCloseModal() {
+  //   popupText.textContent = "";
+  //   super._handleCloseModal();
+  // }
 }
 
 export default Card;
