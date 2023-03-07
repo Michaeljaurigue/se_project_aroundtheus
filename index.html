@@ -25,6 +25,7 @@
       </header>
 
       <main class="content">
+        <!--Profile-->
         <section class="profile page__section">
           <img
             src="./images/jacques-cousteau.jpg"
@@ -33,27 +34,38 @@
           />
           <div class="profile__content">
             <div class="profile__name-edit">
-              <h1 class="profile__title">Jacques Cousteau</h1>
+              <h1 class="profile__title" id="profile__title">
+                Jacques Cousteau
+              </h1>
               <button type="button" class="profile__edit-button"></button>
             </div>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description" id="profile__subtitle">Explorer</p>
           </div>
-          <button type="button" class="profile__add-button"></button>
+          <button
+            type="button"
+            class="profile__add-button"
+            id="profile__add-button"
+          ></button>
         </section>
-
+        <!-- 
         <section class="cards page__section">
-          <ul class="cards__list">
-            <template id="card-template">
-              <li class="card">
+          <ul class="places__list"></ul>
+        </section> -->
+
+        <!--Initialization of Cards-->
+        <section class="cards page__section">
+          <div class="cards__list">
+            <template id="card-template" class="card-template">
+              <div class="card">
                 <img class="card__image" src="#" alt="#" />
                 <button type="button" class="card__trash"></button>
                 <div class="card__description">
                   <h2 class="card__title"></h2>
                   <button type="button" class="card__like-button"></button>
                 </div>
-              </li>
+              </div>
             </template>
-          </ul>
+          </div>
         </section>
       </main>
       <footer class="footer page__section">
@@ -61,18 +73,23 @@
       </footer>
     </div>
 
+    <!--Image Preview-->
     <section class="modal modal_image" id="image-modal">
       <div class="modal__image-container">
         <img class="modal__image-img" src="#" alt="#" />
-        <button class=" modal__image-close" type="button"></button>
+        <button
+          class="modal__image-close modal__close-button"
+          type="button"
+        ></button>
         <p class="modal__image-text"></p>
       </div>
     </section>
 
-    <section class="modal modal_edit">
-      <div class="modal__container" id="modal-profile-form">
+    <!--Edit Profile-->
+    <section class="modal modal_edit" id="modal_edit">
+      <div class="modal__container">
         <h3 class="modal__header">Edit profile</h3>
-        <form action="#" class="form">
+        <form action="#" class="form" id="modal-profile-form">
           <fieldset class="form__fieldset">
             <input
               type="text"
@@ -117,10 +134,15 @@
       </div>
     </section>
 
-    <section class="modal modal_add-card">
+    <!--Add Card-->
+    <section class="modal modal_add-card" id="modal_add-card">
       <div class="modal__container">
         <h3 class="modal__header">New place</h3>
-        <form action="#" class="form modal__form-new-location" id="newLocation">
+        <form
+          action="#"
+          class="form modal__form-new-location"
+          id="modal__form-new-location"
+        >
           <fieldset class="form__fieldset">
             <input
               type="text"

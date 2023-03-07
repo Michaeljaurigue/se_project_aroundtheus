@@ -5,24 +5,24 @@ const modalCardImage = imageModal.querySelector(".modal__image-img");
 const modalCardName = imageModal.querySelector(".modal__image-text");
 
 class Card {
-  constructor(data, cardSelector, handlePreviewPicture) {
+  constructor(data, handlePreview, cardSelector) {
     this._name = data.name;
     this._link = data.link;
-    this._handlePreviewPicture = handlePreviewPicture;
+
+    this._handlePreview = handlePreview;
     this._cardSelector = cardSelector;
+
     this._alt = data.name;
   }
 
   _getTemplate() {
-    const template = document.querySelector(this._cardSelector);
-    const cardElement = template.content.firstElementChild.cloneNode(true);
-
+    const cardElement =
+      this._cardSelector.content.firstElementChild.cloneNode(true);
     return cardElement;
   }
 
   _setEventListeners() {
     this._likeButton = this._element.querySelector(".card__like-button");
-
     this._likeButton.addEventListener("click", () => this._handleLikeIcon());
 
     this._element
@@ -32,7 +32,7 @@ class Card {
     this._element
       .querySelector(".card__image")
       .addEventListener("click", () =>
-        this._handlePreviewPicture({ name: this._name, link: this._link })
+        this._handlePreview({ name: this._name, link: this._link })
       );
   }
 
@@ -44,9 +44,29 @@ class Card {
     this._element.remove();
   }
 
+  _handlePreview() {
+    const modalCardImage = document.querySelector(".modal__image-img");
+    const modalCardName = document.querySelector(".modal__image-text");
+
+    modalCardImage.src = this._link;
+    modalCardImage.alt = this._alt;
+    modalCardName.textContent = this._name;
+
+    imageModal.classList.add("modal__opened");
+    document.addEventListener("keyup", this._handleEscUp);
+  }
+
+  // _handlePreview() {
+  //   modalCardImage.src = this._link;
+  //   modalCardImage.alt = this._alt;
+  //   modalCardName.textContent = this._name;
+
+  //   imageModal.classList.add("modal__opened");
+  //   document.addEventListener("keyup", this._handleEscUp);
+  // }
+
   getCardElement() {
     this._element = this._getTemplate();
-
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__title").textContent = this._name;
 

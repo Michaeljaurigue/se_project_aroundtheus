@@ -1,3 +1,4 @@
+
 function openModal(modal) {
   modal.classList.add("modal__opened");
   document.addEventListener("keydown", hideModalOnEscape);
@@ -23,4 +24,11 @@ function hideModalOnEscape(evt) {
   }
 }
 
-export { openModal, closeModal, hideModalOnRemoteClick, hideModalOnEscape };
+const bodyElement = document.querySelector(".body");
+
+function removePreloader() {
+  bodyElement.classList.remove("preload");
+}
+
+
+export { openModal, closeModal, removePreloader };
