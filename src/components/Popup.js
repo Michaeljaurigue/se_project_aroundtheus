@@ -4,6 +4,7 @@ class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
     this._handleEscUp = this._handleEscUp.bind(this);
+    this._popupForm = this._popupElement.querySelector(".form");
   }
 
   open() {
@@ -17,7 +18,6 @@ class Popup {
   }
 
   _handleEscUp(evt) {
-    // evt.preventDefault();
     if (evt.which === ESC_KEYCODE) {
       this.close();
     }
@@ -29,14 +29,6 @@ class Popup {
         evt.target.classList.contains("modal__opened") ||
         evt.target.classList.contains("modal__close-button")
       ) {
-        this.close();
-      }
-    });
-  }
-
-  _removeEventListeners() {
-    this._popupElement.removeEventListener("mousedown", (evt) => {
-      if (evt.target === evt.currentTarget) {
         this.close();
       }
     });

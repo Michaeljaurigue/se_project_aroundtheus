@@ -1,9 +1,3 @@
-const imageModal = document.querySelector("#image-modal");
-
-const modalCardImage = imageModal.querySelector(".modal__image-img");
-
-const modalCardName = imageModal.querySelector(".modal__image-text");
-
 class Card {
   constructor(data, handlePreview, cardSelector) {
     this._name = data.name;
@@ -42,9 +36,9 @@ class Card {
     this._element.remove();
   }
 
-  _handlePreview() {
-    this._handleImageClick(this._name, this._link);
-  }
+  // _handlePreview() {
+  //   this._handleImageClick(this._name, this._link);
+  // }
 
   getCardElement() {
     this._element = this._getTemplate();
