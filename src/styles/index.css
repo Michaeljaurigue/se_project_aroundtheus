@@ -8,3 +8,9 @@
 @import url("../blocks/footer.css");
 @import url("../blocks/form.css");
 @import url("../blocks/modal.css");
+
+body {
+  background-color: pink; /* makes the whole page pink */
+  /* who doesn't love pink
+    Am I the only one? */
+}
