@@ -51,18 +51,3 @@ export const selectors = {
   cardTemplate: ".card-template",
   cardPreview: "modal_image",
 };
-
-// const configClose = {
-//   closeButtonSelector: ".modal__close-button",
-//   modalOverlaySelector: ".modal",
-//   modalContainerList: ".modal__container",
-// };
-
-// const configUser = {
-//   userModal: ".modal_edit",
-//   nameSelector: ".profile__name",
-//   jobSelector: ".profile__job",
-//   newName: ".form__input_type_name",
-//   newJob: ".form__input_type_about",
-//   profilePicture: ".profile__image",
-// };

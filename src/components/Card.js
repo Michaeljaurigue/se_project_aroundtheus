@@ -8,10 +8,8 @@ class Card {
   constructor(data, handlePreview, cardSelector) {
     this._name = data.name;
     this._link = data.link;
-
     this._handlePreview = handlePreview;
     this._cardSelector = cardSelector;
-
     this._alt = data.name;
   }
 
@@ -45,25 +43,8 @@ class Card {
   }
 
   _handlePreview() {
-    const modalCardImage = document.querySelector(".modal__image-img");
-    const modalCardName = document.querySelector(".modal__image-text");
-
-    modalCardImage.src = this._link;
-    modalCardImage.alt = this._alt;
-    modalCardName.textContent = this._name;
-
-    imageModal.classList.add("modal__opened");
-    document.addEventListener("keyup", this._handleEscUp);
+    this._handleImageClick(this._name, this._link);
   }
-
-  // _handlePreview() {
-  //   modalCardImage.src = this._link;
-  //   modalCardImage.alt = this._alt;
-  //   modalCardName.textContent = this._name;
-
-  //   imageModal.classList.add("modal__opened");
-  //   document.addEventListener("keyup", this._handleEscUp);
-  // }
 
   getCardElement() {
     this._element = this._getTemplate();
@@ -76,16 +57,6 @@ class Card {
 
     return this._element;
   }
-
-  // _handleOpenModal() {
-  //   popupText.textContent = this._name;
-  //   super._handleOpenModal();
-  // }
-
-  // _handleCloseModal() {
-  //   popupText.textContent = "";
-  //   super._handleCloseModal();
-  // }
 }
 
 export default Card;
