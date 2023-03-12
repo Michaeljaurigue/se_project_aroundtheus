@@ -24,6 +24,7 @@ module.exports = {
     open: true,
     liveReload: true,
     hot: false,
+    
   },
   module: {
     rules: [
@@ -64,4 +65,5 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(), // connect the plugin for merging CSS files
   ],
+  
 };
