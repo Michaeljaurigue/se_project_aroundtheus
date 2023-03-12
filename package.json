@@ -4,8 +4,8 @@
   "description": "Project 4: Around The U.S.",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --mode production",
-    "dev": "webpack serve --mode development"
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
   },
   "repository": {
     "type": "git",

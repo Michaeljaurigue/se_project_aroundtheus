@@ -13,7 +13,7 @@ class Card {
     return cardElement;
   }
 
-  _setEventListeners() {
+  setEventListeners() {
     this._likeButton = this._element.querySelector(".card__like-button");
     this._likeButton.addEventListener("click", () => this._handleLikeIcon());
 
@@ -36,18 +36,15 @@ class Card {
     this._element.remove();
   }
 
-  // _handlePreview() {
-  //   this._handleImageClick(this._name, this._link);
-  // }
-
   getCardElement() {
     this._element = this._getTemplate();
+
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__title").textContent = this._name;
 
     this._element.querySelector(".card__image").alt = this._alt;
 
-    this._setEventListeners();
+    this.setEventListeners();
 
     return this._element;
   }

@@ -9,7 +9,7 @@
     <meta name="description" content="Around the US" />
     <meta name="keywords" content="Around the US, Jacques Cousteau, Explorer" />
     <meta name="author" content="Michael Jaurigue" />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
   </head>
 
   <body class="page body preload">
@@ -17,7 +17,7 @@
       <header class="page__section header">
         <div class="header__content">
           <img
-            src="./images/Around-the-US-Logo.svg"
+            src="<%=require('./images/Around-the-US-Logo.svg')%>"
             alt="Arount the US"
             class="header__logo"
           />
@@ -28,7 +28,7 @@
         <!--Profile-->
         <section class="profile page__section">
           <img
-            src="./images/jacques-cousteau.jpg"
+            src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="Jacques Cousteau"
             class="profile__image"
           />
@@ -51,7 +51,7 @@
           <div class="cards__list">
             <template id="card-template" class="card-template">
               <div class="card">
-                <img class="card__image" src="#" alt="#" />
+                <img class="card__image" src=" " alt=" " />
                 <button type="button" class="card__trash"></button>
                 <div class="card__description">
                   <h2 class="card__title"></h2>
@@ -70,7 +70,7 @@
     <!--Image Preview-->
     <section class="modal modal_image" id="image-modal">
       <div class="modal__image-container">
-        <img class="modal__image-img" src="#" alt="#" id="modal__image-img" />
+        <img class="modal__image-img" src=" " alt=" " id="modal__image-img" />
         <button
           class="modal__image-close modal__close-button"
           type="button"
@@ -179,7 +179,7 @@
         ></button>
       </div>
     </section>
-
-    <script type="module" src="./pages/index.js"></script>
+    <!-- 
+    <script type="module" src="./pages/index.js"></script> -->
   </body>
 </html>
