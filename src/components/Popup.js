@@ -4,7 +4,6 @@ class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
     this._handleEscUp = this._handleEscUp.bind(this);
-    this._popupForm = this._popupElement.querySelector(".form");
   }
 
   open() {

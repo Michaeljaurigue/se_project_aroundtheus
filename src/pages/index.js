@@ -43,17 +43,17 @@ const addCardButton = document.querySelector("#profile__add-button");
 ///////////////////////
 //Initialize Cards
 ///////////////////////
-const newCardSection = new Section(
+const cardsSection = new Section(
   {
     items: initialCards,
     renderer: (data) => {
-      newCardSection.addItem(createCard(data));
+      cardsSection.addItem(createCard(data));
     },
   },
   selectors.cardSection
 );
 
-newCardSection.renderItems();
+cardsSection.renderItems();
 
 function createCard(data) {
   const newCard = new Card(data, handleImageClick, cardSelector);
@@ -70,11 +70,10 @@ export function handleImageClick(name, link) {
 
 function submitEditProfile(inputValues) {
   userInfo.setUserInfo({
-    name: (profileTitle.textContent = inputValues.name),
-    job: (profileSubtitle.textContent = inputValues.job),
+    name: inputValues.name,
+    job: inputValues.job,
   });
   editFormPopup.close();
-
 }
 
 function submitAddCard(inputValues) {
@@ -83,11 +82,9 @@ function submitAddCard(inputValues) {
 }
 
 function openProfileEditForm() {
-  userInfo.setUserInfo({
-    name: (modalEditTitleInput.value = profileTitle.textContent),
-    job: (modalEditSubtitleInput.value = profileSubtitle.textContent),
-  });
-  editFormPopup.open(modalEditProfile);
+  const { name, job } = userInfo.getUserInfo();
+  modalEditTitleInput.value = name;
+  modalEditSubtitleInput.value = editFormPopup.open();
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -105,7 +102,6 @@ addCardButton.addEventListener("click", () => {
 const editFormPopup = new PopUpWithForm("#modal_edit", submitEditProfile);
 const addFormPopup = new PopUpWithForm("#modal_add-card", submitAddCard);
 const modalImagePopup = new PopUpWithImage({ popupSelector: "#image-modal" });
-
 
 modalImagePopup.setEventListeners();
 editFormPopup.setEventListeners();
@@ -130,6 +126,6 @@ addFormValidator.enableValidation();
 //User Info
 ///////////////////////
 const userInfo = new UserInfo({
-  nameSelector: ".profile__title",
-  jobSelector: ".profile__description",
+  nameSelector: "#profile__title",
+  jobSelector: "#profile__subtitle",
 });
