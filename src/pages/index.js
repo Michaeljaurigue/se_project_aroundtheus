@@ -93,7 +93,8 @@ function submitAddCard(inputValues) {
 function openProfileEditForm() {
   const { name, job } = userInfo.getUserInfo();
   modalEditTitleInput.value = name;
-  modalEditSubtitleInput.value = editFormPopup.open();
+  modalEditSubtitleInput.value = job;
+  editFormPopup.open();
 }
 
 ///////////////////////
