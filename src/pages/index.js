@@ -43,6 +43,15 @@ const addCardButton = document.querySelector("#profile__add-button");
 ///////////////////////
 //Initialize Cards
 ///////////////////////
+
+profileEditButton.addEventListener("click", () => {
+  openProfileEditForm();
+});
+
+addCardButton.addEventListener("click", () => {
+  addFormPopup.open();
+});
+
 const cardsSection = new Section(
   {
     items: initialCards,
@@ -86,14 +95,6 @@ function openProfileEditForm() {
   modalEditTitleInput.value = name;
   modalEditSubtitleInput.value = editFormPopup.open();
 }
-
-profileEditButton.addEventListener("click", () => {
-  openProfileEditForm();
-});
-
-addCardButton.addEventListener("click", () => {
-  addFormPopup.open();
-});
 
 ///////////////////////
 //Popups
