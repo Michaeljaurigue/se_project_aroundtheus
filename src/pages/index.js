@@ -39,7 +39,7 @@ const modalAddCardForm = document.querySelector("#modal__form-new-location");
 const modalAddCardNameInput = document.querySelector("#title");
 const modalAddCardUrlInput = document.querySelector("#image-url");
 const addCardButton = document.querySelector("#profile__add-button");
-
+const addCardSubmitButton = document.querySelector("#submit-button");
 ///////////////////////
 //Initialize Cards
 ///////////////////////
@@ -48,19 +48,9 @@ profileEditButton.addEventListener("click", () => {
   openProfileEditForm();
 });
 
-addCardButton.addEventListener("click", () => {
-  const cardButton = document.getElementById("#submit-button");
-  cardButton.classList.remove("card__like-button_active");
+addCardButton.addEventListener("click", (e) => {
   addFormPopup.open();
 });
-
-// addCardButton.addEventListener("click", () => {
-//   const cardButton = document.querySelector("#submit-button");
-//   if (cardButton) {
-//     cardButton.classList.remove("card__like-button_active");
-//   }
-//   addFormPopup.open();
-// });
 
 const cardsSection = new Section(
   {
@@ -88,6 +78,7 @@ export function handleImageClick(name, link) {
 ///////////////////////
 
 function submitEditProfile(inputValues) {
+  console.log(inputValues);
   userInfo.setUserInfo({
     name: inputValues.name,
     job: inputValues.job,
@@ -96,17 +87,19 @@ function submitEditProfile(inputValues) {
 }
 
 function submitAddCard(inputValues) {
-  console.log(inputValues);
   const card = createCard(
     { name: inputValues.name, link: inputValues.link },
     cardSelector
   );
   cardsSection.addItem(card);
+  addCardSubmitButton.classList.toggle("form__submit-button_inactive");
   addFormPopup.close();
 }
 
 function openProfileEditForm() {
   const { name, job } = userInfo.getUserInfo();
+  console.log(name);
+  console.log(job);
   modalEditTitleInput.value = name;
   modalEditSubtitleInput.value = job;
   editFormPopup.open();
