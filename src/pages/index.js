@@ -49,8 +49,18 @@ profileEditButton.addEventListener("click", () => {
 });
 
 addCardButton.addEventListener("click", () => {
+  const cardButton = document.getElementById("#submit-button");
+  cardButton.classList.remove("card__like-button_active");
   addFormPopup.open();
 });
+
+// addCardButton.addEventListener("click", () => {
+//   const cardButton = document.querySelector("#submit-button");
+//   if (cardButton) {
+//     cardButton.classList.remove("card__like-button_active");
+//   }
+//   addFormPopup.open();
+// });
 
 const cardsSection = new Section(
   {
@@ -86,7 +96,12 @@ function submitEditProfile(inputValues) {
 }
 
 function submitAddCard(inputValues) {
-  createCard({ name: inputValues.name, link: inputValues.link }, cardSelector);
+  console.log(inputValues);
+  const card = createCard(
+    { name: inputValues.name, link: inputValues.link },
+    cardSelector
+  );
+  cardsSection.addItem(card);
   addFormPopup.close();
 }
 
@@ -131,3 +146,11 @@ const userInfo = new UserInfo({
   nameSelector: "#profile__title",
   jobSelector: "#profile__subtitle",
 });
+
+// document.getElementById("#submit_button").addEventListener("click", () => {
+//   const ojb = {
+//     name: document.getElementById("#name").value,
+//     job: document.getElementById("#description").value,
+//   };
+//   submitAddCard(ojb);
+// });

@@ -48,7 +48,7 @@
 
         <!--Initialization of Cards-->
         <section class="cards page__section">
-          <div class="cards__list">
+          <div class="cards__list" id="cards__list">
             <template id="card-template" class="card-template">
               <div class="card">
                 <img class="card__image" src=" " alt=" " />
@@ -142,7 +142,7 @@
               type="text"
               class="form__input form__input_type_place"
               id="title"
-              name="title"
+              name="name"
               placeholder="Title"
               required
               minlength="1"
@@ -153,7 +153,7 @@
               type="url"
               class="form__input form__input_type_link"
               id="image-url"
-              name="image-url"
+              name="link"
               placeholder="Image URL"
               required
             />
