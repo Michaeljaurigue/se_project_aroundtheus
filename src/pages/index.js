@@ -49,6 +49,7 @@ profileEditButton.addEventListener("click", () => {
 });
 
 addCardButton.addEventListener("click", (e) => {
+  addFormValidator.toggleButtonState();
   addFormPopup.open();
 });
 
