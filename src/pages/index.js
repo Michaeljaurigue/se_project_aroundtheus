@@ -11,6 +11,26 @@ import PopUpWithImage from "../components/PopupWithImage.js";
 import PopUpWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
+
+///////////////////////
+//API
+///////////////////////
+
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-12/",
+  headers: {
+    authorization: "b66b9631-4780-4c88-b613-80a9a7c96739",
+    "Content-Type": "application/json",
+  },
+});
+
+api.getInitialCards();
+// api.getInitialCards();
+// api.getInitialCards().then((data) => {
+//   console.log(data);
+// });
+// console.log(api);
 
 ///////////////////////
 //Card Variables
@@ -40,6 +60,12 @@ const modalAddCardNameInput = document.querySelector("#title");
 const modalAddCardUrlInput = document.querySelector("#image-url");
 const addCardButton = document.querySelector("#profile__add-button");
 const addCardSubmitButton = document.querySelector("#submit-button");
+
+///////////////////////
+//Api Variables
+///////////////////////
+// const api = new Api(baseURL);
+
 ///////////////////////
 //Initialize Cards
 ///////////////////////
