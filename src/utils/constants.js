@@ -1,54 +1,38 @@
 export const ESC_KEYCODE = 27;
 
-export const initialCards = [
-  {
-    name: "Yosemite Valley",
-    // link: "https://github.com/Michaeljaurigue/se_project_aroundtheus/blob/main/images/Pixabay-Yosemite-Valley.jpg?raw=true",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
+export const authToken = "b66b9631-4780-4c88-b613-80a9a7c96739";
 
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
+export const baseURL = "https://around.nomoreparties.co/v1/group-12";
 
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
+export const configUser = {
+  userModal: ".modal_edit",
+  currentName: ".profile__title",
+  currentAbout: ".profile__description",
+  newName: ".form__input_type_name",
+  newAbout: ".form__input_type_about",
+  profilePicture: ".profile__image",
+};
 
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-];
-
-export const validationSettings = {
+export const configValidate = {
   formSelector: ".form",
-  formFieldSelector: ".form__fieldset",
+  formFieldsetSelector: ".form__fieldset",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__submit-button",
   inactiveButtonClass: "form__submit-button_inactive",
   inputErrorClass: "form__input_type_error",
   errorClass: "form__error_visible",
+  errorSelector: ".form__error",
 };
 
 export const cardSelector = document.querySelector(".cards__list");
 
-export const cardsDisplayed = document.querySelector(".cards");
+export const cardsDisplayed = ".cards";
 
 export const selectors = {
   cardSection: ".cards__list",
   cardTemplate: ".card-template",
   cardPreview: "modal_image",
+  profileTitle: ".profile__title",
+  profileSubtitle: ".profile__subtitle",
+  profileAvatar: ".profile__avatar",
 };

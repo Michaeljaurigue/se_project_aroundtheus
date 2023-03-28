@@ -9,7 +9,6 @@
     <meta name="description" content="Around the US" />
     <meta name="keywords" content="Around the US, Jacques Cousteau, Explorer" />
     <meta name="author" content="Michael Jaurigue" />
-    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
   </head>
 
   <body class="page body preload">
@@ -26,98 +25,92 @@
 
       <main class="content">
         <!--Profile-->
-        <section class="profile page__section">
-          <img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Jacques Cousteau"
-            class="profile__image"
-          />
+        <section class="profile">
           <div class="profile__content">
-            <div class="profile__name-edit">
-              <h1 class="profile__title" id="profile__title">Jake Casper</h1>
-              <button type="button" class="profile__edit-button"></button>
-            </div>
-            <p class="profile__description" id="profile__subtitle">Explorer</p>
+            <button class="profile__image-button"></button>
+            <img src="" alt="Profile Image" class="profile__image" />
+          </div>
+          <div class="profile__info">
+            <h1 class="profile__title"></h1>
+            <button
+              class="profile__edit-button"
+              type="button"
+              aria-label="edit"
+            ></button>
+            <p class="profile__description"></p>
           </div>
           <button
-            type="button"
             class="profile__add-button"
+            type="button"
             id="profile__add-button"
           ></button>
         </section>
 
         <!--Initialization of Cards-->
-        <section class="cards page__section">
-          <div class="cards__list" id="cards__list">
-            <template id="card-template" class="card-template">
-              <div class="card">
-                <img class="card__image" src=" " alt=" " />
-                <button type="button" class="card__trash"></button>
-                <div class="card__description">
-                  <h2 class="card__title"></h2>
-                  <button type="button" class="card__like-button"></button>
+        <!-- <section class="cards">
+          <template id="card">
+            <article class="card">
+              <img src="" alt="location" class="card__image" />
+              <button class="card__delete-button" type="button"></button>
+              <div class="card__info">
+                <h2 class="card__title"></h2>
+                <div class="card__like-container">
+                  <button class="card__like-button" type="button"></button>
+                  <div class="card__likes"></div>
                 </div>
               </div>
-            </template>
-          </div>
+            </article>
+          </template>
+        </section> -->
+        <section class="cards page__section">
+          <template id="card" class="card-template">
+            <div class="card">
+              <img class="card__image" src=" " alt=" " />
+              <button type="button" class="card__delete-button"></button>
+              <div class="card__description">
+                <h2 class="card__title"></h2>
+                <div class="card__like-container">
+                  <button type="button" class="card__like-button"></button>
+                  <div class="card__likes"></div>
+                </div>
+              </div>
+            </div>
+          </template>
         </section>
       </main>
       <footer class="footer page__section">
         <p class="footer__content">&copy; 2022 Around The U.S.</p>
       </footer>
     </div>
-    <!--Profile Delete-->
+    <!--Profile Avatar Change Modal-->
     <div class="modal modal__profile-picture modal_open">
       <div class="modal__container">
+        <h2 class="modal__header">Change Profile Picture</h2>
         <button
-          class="modal__close-button"
-          type="button"
-          name="close"
+          class="modal__close-edit modal__close modal__close-button"
           aria-label="close"
+          id="edit-close-button"
+          type="button"
         ></button>
         <form class="form">
-          <h2 class="modal__header">Change Profile Pciture</h2>
           <fieldset class="form__fieldset">
             <input
               type="url"
-              class="form__input form__input_profile-picture"
+              class="form__input"
               id="form_picture"
               name="avatar"
               placeholder="Link"
               required
             />
-            <span class="form__picture-error"></span>
-            <button
-              class="form__button form__submit-button form__submit-button_inactive"
-              type="submit"
-              name="create"
-              disabled="true"
-            >
+            <span class="form__error" id="form_picture-error"></span>
+            <button class="form__submit-button" type="submit" name="create">
               Save
             </button>
           </fieldset>
         </form>
       </div>
     </div>
-    <!--Confirm Deletion Modal-->
-    <div class="modal modal_confirm">
-      <div class="modal__container">
-        <button
-          class="modal__close-button"
-          type="button"
-          name="close"
-          aria-label="close"
-        ></button>
-        <form class="form">
-          <h2 class="modal__header">Are you sure?</h2>
-          <fieldset class="form__fieldset">
-            <button class="form__button form__submit-button" type="submit">
-              Yes
-            </button>
-          </fieldset>
-        </form>
-      </div>
-    </div>
+
     <!--Image Preview-->
     <section class="modal modal_image" id="image-modal">
       <div class="modal__image-container">
@@ -133,13 +126,19 @@
     <!--Edit Profile-->
     <section class="modal modal_edit" id="modal_edit">
       <div class="modal__container">
+        <button
+          class="modal__close-edit modal__close modal__close-button"
+          aria-label="close"
+          id="edit-close-button"
+          type="button"
+        ></button>
         <h3 class="modal__header">Edit profile</h3>
         <form action="#" class="form" id="modal-profile-form">
           <fieldset class="form__fieldset">
             <input
               type="text"
               class="form__input form__input-edit form__input_type_name"
-              id="name"
+              id="form__name"
               name="name"
               placeholder="Name"
               minlength="2"
@@ -150,32 +149,21 @@
             <input
               type="text"
               class="form__input form__input-edit form__input_type_about"
-              id="description"
-              name="job"
-              placeholder="Description"
+              id="form__about"
+              name="about"
+              placeholder="About Me"
               minlength="2"
               maxlength="200"
               required
             />
-            <span class="form__error" id="description-error"></span>
+            <span class="form__error" id="form__about-error"></span>
           </fieldset>
           <fieldset class="form__fieldset">
-            <button
-              class="form__button form__submit-button form__submit-button_inactive"
-              type="submit"
-              name="submit"
-              disabled
-            >
+            <button class="form__submit-button" type="submit" name="submit">
               Save
             </button>
           </fieldset>
         </form>
-        <button
-          class="modal__close-edit modal__close modal__close-button"
-          aria-label="close"
-          id="edit-close-button"
-          type="button"
-        ></button>
       </div>
     </section>
 
@@ -183,11 +171,7 @@
     <section class="modal modal_add-card" id="modal_add-card">
       <div class="modal__container">
         <h3 class="modal__header">New place</h3>
-        <form
-          action="#"
-          class="form modal__form-new-location"
-          id="modal__form-new-location"
-        >
+        <form action="#" class="form" id="modal__form-new-location">
           <fieldset class="form__fieldset">
             <input
               type="text"
@@ -215,8 +199,7 @@
               name="create"
               type="submit"
               id="submit-button"
-              disabled
-              class="form__button form__add-card-button form__submit-button form__submit-button_inactive"
+              class="form__add-card-button form__submit-button"
             >
               Save
             </button>
@@ -230,7 +213,23 @@
         ></button>
       </div>
     </section>
-    <!-- 
-    <script type="module" src="./pages/index.js"></script> -->
+
+    <!--Confirm Deletion Modal-->
+    <div class="modal modal_confirm">
+      <div class="modal__container">
+        <button
+          class="modal__close-button modal__close"
+          type="button"
+          name="close"
+          aria-label="close"
+        ></button>
+        <form class="form">
+          <fieldset class="form__fieldset">
+            <h2 class="modal__header">Are you sure?</h2>
+            <button class="form__submit-button" type="submit">Yes</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

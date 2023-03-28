@@ -1,107 +1,101 @@
-export default class Api {
-  constructor({ baseUrl, headers }) {
-    // this._getInitialCards = this._getInitialCards.bind(this);
-    this._baseUrl = baseUrl;
-    this._headers = headers;
-    this._token = headers.authorization;
+class Api {
+  constructor(baseURL, authToken) {
+    this._baseURL = baseURL;
+    this._authToken = authToken;
+    this._headers = {
+      authorization: authToken,
+      "Content-Type": "application/json",
+    };
   }
 
-  _checkResponse(res) {
+  _processServerResponse = (res) => {
     if (res.ok) {
       return res.json();
     }
+
+    console.log(`Error: ${res.status}`);
     return Promise.reject(`Error: ${res.status}`);
-  }
+  };
 
-  getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
+  async getInitialCards() {
+    const res = await fetch(`${this._baseURL}/cards`, {
       method: "GET",
-      headers: this._token,
-    }).then((res) => this._checkResponse(res));
-  }
-
-  updateProfileInfo(name, about) {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: "PATCH",
-      headers: this._token,
-      body: JSON.stringify({
-        name,
-        about,
-      }),
-    }).then((res) => this._checkResponse(res));
-  }
-
-  //Old Code
-  // getInitialCards() {
-  //   return fetch(`${this._baseUrl}/cards`, {
-  //     method: "GET",
-  //     headers: this._token,
-  //   }).then((res) => this._checkResponse(res));
-  // }
-
-  getInitialCards() {
-    // console.log(this._baseUrl);
-    // console.log(this._token);
-    // console.log(this._headers);
-    return fetch(`${this._baseUrl}/cards`, {
-      method: "GET",
-      headers: this._token,
-    }).then((res) => {
-      console.log(res);
-      return this._checkResponse(res);
+      headers: this._headers,
     });
+    return this._processServerResponse(res);
   }
 
-  addNewCard(name, link) {
-    return fetch(`${this._baseUrl}/cards`, {
-      method: "POST",
-      headers: this._token,
+  async getUserInfo() {
+    const res = await fetch(`${this._baseURL}/users/me`, {
+      method: "GET",
+      headers: this._headers,
+    });
+    return this._processServerResponse(res);
+  }
+
+  async getApiInfo() {
+    const res = await Promise.all([this.getUserInfo(), this.getInitialCards()]);
+    return this._processServerResponse(res);
+  }
+
+  async setUserInfo(data) {
+    const res = await fetch(`${this._baseURL}/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
       body: JSON.stringify({
-        name,
-        link,
+        name: data.name,
+        about: data.about,
       }),
-    }).then((res) => this._checkResponse(res));
+    });
+    return this._processServerResponse(res);
   }
 
-  showLikes(likes) {
-    return (
-      fetch(`${this._baseUrl}/cards`),
-      {
-        method: "GET",
-        headers: this._token,
-        body: JSON.stringify({
-          likes,
-        }),
-      }
-    );
+  async setAvatar(data) {
+    const res = await fetch(`${this._baseURL}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: data.avatar,
+      }),
+    });
+    return this._processServerResponse(res);
+  }
+
+  async addCard(data) {
+    const res = await fetch(`${this._baseURL}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: data.name,
+        link: data.link,
+      }),
+    });
+    return this._processServerResponse(res);
+  }
+
+  async deleteCard(data) {
+    const res = await fetch(`${this._baseURL}/cards/${data}`, {
+      method: "DELETE",
+      headers: this._headers,
+    });
+    return this._processServerResponse(res);
+  }
+
+  async addLike(data) {
+    const res = await fetch(`${this._baseURL}/cards/likes/${data}`, {
+      method: "PUT",
+      headers: this._headers,
+    });
+    return this._processServerResponse(res);
+  }
+
+  async removeLike(data) {
+    const res = await fetch(`${this._baseURL}/cards/likes/${data}`, {
+      method: "DELETE",
+      headers: this._headers,
+    });
+    return this._processServerResponse(res);
   }
 }
 
-// const api = new Api({
-//   baseUrl: "https://swapi.dev/api/",
-//   headers: {
-//     // authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
-//     // "Content-Type": "application/json",
-//   },
-// });
-
-//   getInitialCards() {
-//     return fetch("https://around.nomoreparties.co/v1/group-42/cards", {
-//       headers: {
-//         authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
-//       },
-//     })
-//       .then((res) => {
-//         if (res.ok) {
-//           return res.json();
-//         } else {
-//           throw new Error(
-//             `Failed to fetch cards: ${res.status} ${res.statusText}`
-//           );
-//         }
-//       })
-//       .catch((err) => {
-//         console.error(err); // log the error to the console
-//       });
-
-// other methods for working with the API
+export default Api;

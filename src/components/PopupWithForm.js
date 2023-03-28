@@ -2,37 +2,54 @@ import Popup from "./Popup.js";
 
 class PopUpWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
-    super({ popupSelector });
-    this._popupForm = this._popupElement.querySelector(".form");
-    this._formInputs = this._popupForm.querySelectorAll(".form__input");
-    this._handleFormSubmit = handleFormSubmit;
- 
+    super(popupSelector);
+    this._onSubmit = handleFormSubmit;
+    this._formSelector = this._popupElement.querySelector(".form");
+    this._submitButton = this._popupElement.querySelector(
+      ".form__submit-button"
+    );
+    this.currentButtonText = this._submitButton.textContent;
   }
 
-  _getInputValues() {
-    const inputValues = {};
+  _handleFormSubmit = (evt) => {
+    evt.preventDefault();
+    const inputValues = this._getInputValues();
+    this._onSubmit(inputValues);
+  };
 
-    this._formInputs.forEach((input) => {
+  _getInputValues() {
+    const formFieldInputs = [
+      ...this._formSelector.querySelectorAll(".form__input"),
+    ];
+    const inputValues = {};
+    formFieldInputs.forEach((input) => {
       inputValues[input.name] = input.value;
     });
 
     return inputValues;
   }
 
-  close() {
-    this._popupForm.reset();
-    super.close();
+  _setEventListeners() {
+    super._setEventListeners();
+    this._formSelector.addEventListener("submit", this._handleFormSubmit);
   }
 
-  setEventListeners() {
-    super.setEventListeners();
+  _removeEventListeners() {
+    super._removeEventListeners();
+    this._formSelector.removeEventListener("submit", this._handleFormSubmit);
+  }
 
-    this._popupForm.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-      // this._handleFormSubmit();
-      // this.close();
-    });
+  close() {
+    super.close();
+    this._popupElement.querySelector(".form").reset();
+  }
+
+  toggleIsSaving(isSaving) {
+    if (isSaving) {
+      this._submitButton.textContent = "Saving...";
+    } else {
+      this._submitButton.textContent = this.currentButtonText;
+    }
   }
 }
 

@@ -1,11 +1,8 @@
 .card {
+  max-width: 282px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
-  list-style: none;
-  overflow: hidden;
-  position: relative;
-  font-family: "Inter", Arial, sans-serif;
 }
 
 .card__title {
@@ -21,23 +18,22 @@
 }
 
 .card__image {
-  width: 282px;
+  border-radius: 10px;
+  max-width: 282px;
   height: 282px;
   cursor: pointer;
   object-fit: cover;
+  
 }
 
 .card__description {
   display: flex;
   background-color: white;
   color: black;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 25px 20px 25px 20px;
   align-items: center;
   justify-content: space-between;
-  text-overflow: ellipsis;
+  border-radius: 0 0 10px 10px;
 }
 
 .card__like-button {
@@ -62,7 +58,7 @@
   filter: grayscale(100%);
 }
 
-.card__trash {
+.card__delete-button {
   background-image: url("../images/trashCan.svg");
   background-color: rgba(255, 255, 255, 0);
   width: 18px;
@@ -74,7 +70,12 @@
   border: none;
 }
 
-.card__trash:hover {
+.card__delete-button:hover {
   opacity: 0.5;
   cursor: pointer;
+}
+
+.card__likes {
+  display: flex;
+  justify-content: center;
 }
