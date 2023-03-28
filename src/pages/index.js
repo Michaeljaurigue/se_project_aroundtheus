@@ -1,7 +1,6 @@
 import "./index.css";
 import FormValidator from "../components/FormValidator.js";
 import {
-  selectors,
   cardsDisplayed,
   configUser,
   configValidate,
@@ -19,19 +18,15 @@ import Api from "../components/Api.js";
 ///////////////////////
 //Card Variables
 ///////////////////////
-
 const modalEditProfile = document.querySelector(".modal_edit");
 const addNewCardModal = document.querySelector(".modal_add-card");
-const modalPicturePicture = document.querySelector(".modal__profile_picture");
+const modalPicturePicture = document.querySelector(".modal__profile");
 const modalPreview = document.querySelector(".modal_image");
 const modalConfirm = document.querySelector(".modal_confirm");
-
 const profileFormElement = modalEditProfile.querySelector(".form");
 const addCardFormElement = addNewCardModal.querySelector(".form");
 const pictureFormElement = modalPicturePicture.querySelector(".form");
-
 const profileElement = document.querySelector(".profile");
-
 const editProfileButton = profileElement.querySelector(".profile__edit-button");
 const addCardButton = profileElement.querySelector(".profile__add-button");
 const changeAvatarButton = profileElement.querySelector(
@@ -40,16 +35,13 @@ const changeAvatarButton = profileElement.querySelector(
 
 const formNameText = modalEditProfile.querySelector(".form__input_type_name");
 const formAboutText = modalEditProfile.querySelector(".form__input_type_about");
-
 const cardSelector = "#card";
-
 let userId;
+const api = new Api(baseURL, authToken);
 
 ///////////////////////
 //API
 /////////////////////
-
-const api = new Api(baseURL, authToken);
 
 const cardSection = new Section(createCard, cardsDisplayed);
 
