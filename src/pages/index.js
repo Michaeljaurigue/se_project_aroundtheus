@@ -8,9 +8,9 @@ import {
   authToken,
 } from "../utils/constants.js";
 import Card from "../components/Card.js";
-import PopUpWithImage from "../components/PopupWithImage.js";
-import PopUpWithForm from "../components/PopupWithForm.js";
-import PopUpWithConfirm from "../components/PopupWithConfirm";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithConfirm from "../components/PopupWithConfirm";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
@@ -52,19 +52,19 @@ const userObject = new UserInfo(
   configUser.profilePicture
 );
 
-const imagePopup = new PopUpWithImage(modalPreview, handlePictureSubmit);
+const imagePopup = new PopupWithImage(modalPreview, handlePictureSubmit);
 
-const editProfileForm = new PopUpWithForm(
+const editProfileForm = new PopupWithForm(
   modalEditProfile,
   handleProfileSubmit
 );
-const addProfileForm = new PopUpWithForm(addNewCardModal, handleAddCardSubmit);
-const changeAvatarForm = new PopUpWithForm(
+const addProfileForm = new PopupWithForm(addNewCardModal, handleAddCardSubmit);
+const changeAvatarForm = new PopupWithForm(
   modalPicturePicture,
   handlePictureSubmit
 );
 
-const confirmForm = new PopUpWithConfirm(modalConfirm);
+const confirmForm = new PopupWithConfirm(modalConfirm);
 confirmForm.setEventListeners();
 
 function fillProfileForm() {
@@ -108,12 +108,25 @@ function handleProfileSubmit(data) {
     });
 }
 
-function handleAddCardSubmit(data) {
+function handleAddCardSubmit(formElement) {
+  // Get the input values from the form
+  console.log(formElement);
+  const name = formElement.querySelector('input[name="name"]').value;
+  const link = formElement.querySelector('input[name="link"]').value;
+
+  // Create a new object with the input values
+  const data = {
+    name: name,
+    link: link,
+  };
+
+  console.log(data);
+
   addProfileForm.toggleIsSaving(true);
   api
     .addCard(data)
     .then((cardData) => {
-      cardSection.addItem(addItem(cardData));
+      cardSection.addItem(createCard(cardData));
       addProfileForm.close();
     })
     .catch((err) => {
@@ -123,6 +136,23 @@ function handleAddCardSubmit(data) {
       addProfileForm.toggleIsSaving(false);
     });
 }
+
+// function handleAddCardSubmit(data) {
+//   addProfileForm.toggleIsSaving(true);
+//   api.addCard(data);
+//   console
+//     .log(data)
+//     .then((cardData) => {
+//       cardSection.addItem(addItem(cardData));
+//       addProfileForm.close();
+//     })
+//     .catch((err) => {
+//       console.log(`Error: ${err.status}`);
+//     })
+//     .finally(() => {
+//       addProfileForm.toggleIsSaving(false);
+//     });
+// }
 
 function handlePictureSubmit(data) {
   changeAvatarForm.toggleIsSaving(true);
