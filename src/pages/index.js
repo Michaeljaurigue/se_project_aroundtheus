@@ -22,7 +22,7 @@ import Api from "../components/Api.js";
 
 const modalEditProfile = document.querySelector(".modal_edit");
 const addNewCardModal = document.querySelector(".modal_add-card");
-const modalPicturePicture = document.querySelector(".modal__profile-picture");
+const modalPicturePicture = document.querySelector(".modal__profile_picture");
 const modalPreview = document.querySelector(".modal_image");
 const modalConfirm = document.querySelector(".modal_confirm");
 
