@@ -1,13 +1,8 @@
 .form {
   padding: 34px 36px 36px;
   margin: 0 auto;
-  /* width: 358px; */
   display: flex;
   flex-direction: column;
-  /* margin-top: 34px;
-  margin-bottom: 36.51px;
-  margin-left: 36px;
-  margin-right: 36px; */
 }
 
 .form__fieldset {
@@ -65,12 +60,9 @@
 
 .form__error {
   font-size: 12px;
-  /* line-height: 15px; */
   color: #ff0000;
-  /* top: calc(100% + 5px); */
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
-  /* font-size: 18px; */
   left: 0;
   transition: opcaticy 0.3s;
 }
@@ -89,8 +81,6 @@
 }
 
 .form__error_visible {
-  /* font-size: 12px; */
-  /* line-height: 15px; */
   color: rgba(255, 0, 0);
   margin: 0;
 }
