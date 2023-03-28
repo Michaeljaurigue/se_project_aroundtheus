@@ -17,11 +17,17 @@
   border-radius: 100%;
 }
 
-.profile__image-container:hover {
+.profile__image:hover {
+  background: transparent url(../images/edit-icon.svg) center no-repeat;
+  cursor: pointer;
+  display: block;
+}
+
+.profile__content:hover {
   opacity: 80%;
 }
 
-.profile__image-container:hover .profile__image-button {
+.profile__content:hover .profile__image-button {
   display: block;
 }
 
@@ -38,6 +44,7 @@
   top: 50px;
   cursor: pointer;
   transition: 0.75s;
+  display: none;
 }
 
 .profile__info {
@@ -72,6 +79,7 @@
   width: 24px;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: transparent;
   align-self: center;
   box-sizing: border-box;
   border: 1px solid #fff;

@@ -37,6 +37,7 @@ const formNameText = modalEditProfile.querySelector(".form__input_type_name");
 const formAboutText = modalEditProfile.querySelector(".form__input_type_about");
 const cardSelector = "#card";
 let userId;
+
 const api = new Api(baseURL, authToken);
 
 ///////////////////////

@@ -82,12 +82,12 @@
             <input
               type="url"
               class="form__input"
-              id="form_picture"
+              id="avatar"
               name="avatar"
               placeholder="Link"
               required
             />
-            <span class="form__error" id="form_picture-error"></span>
+            <span class="form__error" id="avatar-error"></span>
             <button class="form__submit-button" type="submit" name="create">
               Save
             </button>
@@ -123,7 +123,7 @@
             <input
               type="text"
               class="form__input form__input-edit form__input_type_name"
-              id="form__name"
+              id="name"
               name="name"
               placeholder="Name"
               minlength="2"
@@ -134,14 +134,14 @@
             <input
               type="text"
               class="form__input form__input-edit form__input_type_about"
-              id="form__about"
+              id="about"
               name="about"
               placeholder="About Me"
               minlength="2"
               maxlength="200"
               required
             />
-            <span class="form__error" id="form__about-error"></span>
+            <span class="form__error" id="about-error"></span>
           </fieldset>
           <fieldset class="form__fieldset">
             <button class="form__submit-button" type="submit" name="submit">
@@ -161,23 +161,23 @@
             <input
               type="text"
               class="form__input form__input_type_place"
-              id="title"
+              id="name"
               name="name"
-              placeholder="Title"
+              placeholder="Name"
               required
               minlength="1"
               maxlength="30"
             />
-            <span class="form__error" id="title-error"></span>
+            <span class="form__error" id="name-error"></span>
             <input
               type="url"
               class="form__input form__input_type_link"
-              id="image-url"
+              id="link"
               name="link"
               placeholder="Image URL"
               required
             />
-            <span class="form__error" id="image-url-error"></span>
+            <span class="form__error" id="link-error"></span>
           </fieldset>
           <fieldset class="form__fieldset">
             <button
@@ -209,9 +209,11 @@
           aria-label="close"
         ></button>
         <form class="form">
+          <h2 class="modal__header">Are you sure?</h2>
           <fieldset class="form__fieldset">
-            <h2 class="modal__header">Are you sure?</h2>
-            <button class="form__submit-button" type="submit">Yes</button>
+            <button class="form__submit-button" type="submit" name="create">
+              Yes
+            </button>
           </fieldset>
         </form>
       </div>
