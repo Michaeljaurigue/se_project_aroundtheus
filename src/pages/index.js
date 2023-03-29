@@ -15,6 +15,7 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 
+console.log();
 ///////////////////////
 //Card Variables
 ///////////////////////
@@ -167,7 +168,8 @@ function handleDeleteLocalCard(card) {
       });
   });
 }
-console.log(handleDeleteLocalCard());
+
+
 // console.log(`Error: ${err.status}`);
 function handleCardLike(card) {
   if (card.isLiked()) {

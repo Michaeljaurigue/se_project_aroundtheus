@@ -66,7 +66,7 @@ class FormValidator {
       });
     });
   }
-
+  console.log();
   enableValidation() {
     this._formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();

@@ -21,7 +21,7 @@ class Card {
     this._handleDisplayImage = handleDisplayImage;
     this._handleDeleteCard = handleDeleteCard;
   }
-
+  console.log();
   _getTemplate() {
     return document
       .querySelector(this._cardSelector)

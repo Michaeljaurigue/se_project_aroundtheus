@@ -3,7 +3,7 @@ export const ESC_KEYCODE = 27;
 export const authToken = "b66b9631-4780-4c88-b613-80a9a7c96739";
 
 export const baseURL = "https://around.nomoreparties.co/v1/group-12";
-
+console.log();
 export const configUser = {
   userModal: ".modal_edit",
   currentName: ".profile__title",
