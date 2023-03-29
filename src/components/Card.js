@@ -68,7 +68,7 @@ class Card {
   }
 
   isLiked() {
-    return this._likes.some((like) => this._userId === like._id);
+    return this._likes?.some((like) => this._userId === like._id);
   }
 
   updateLikes(likes) {

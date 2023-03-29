@@ -107,54 +107,32 @@ function handleProfileSubmit(data) {
       editProfileForm.toggleIsSaving(false);
     });
 }
+function handleAddCardSubmit(inputValues) {
+  const name = inputValues.name;
+  const link = inputValues.link;
 
-function handleAddCardSubmit(formElement) {
-  // Get the input values from the form
-  console.log(formElement);
-  const name = formElement.querySelector('input[name="name"]').value;
-  const link = formElement.querySelector('input[name="link"]').value;
-
-  // Create a new object with the input values
   const data = {
     name: name,
     link: link,
   };
 
-  console.log(data);
-
   addProfileForm.toggleIsSaving(true);
   api
-    .addCard(data)
+    .addCard(inputValues)
     .then((cardData) => {
-      cardSection.addItem(createCard(cardData));
+      cardSection.addItem(cardData);
       addProfileForm.close();
     })
     .catch((err) => {
-      console.log(`Error: ${err.status}`);
+      console.error("Error:", err);
     })
     .finally(() => {
       addProfileForm.toggleIsSaving(false);
     });
 }
 
-// function handleAddCardSubmit(data) {
-//   addProfileForm.toggleIsSaving(true);
-//   api.addCard(data);
-//   console
-//     .log(data)
-//     .then((cardData) => {
-//       cardSection.addItem(addItem(cardData));
-//       addProfileForm.close();
-//     })
-//     .catch((err) => {
-//       console.log(`Error: ${err.status}`);
-//     })
-//     .finally(() => {
-//       addProfileForm.toggleIsSaving(false);
-//     });
-// }
-
 function handlePictureSubmit(data) {
+  console.log(data);
   changeAvatarForm.toggleIsSaving(true);
   api
     .setAvatar(data.avatar)
@@ -163,46 +141,46 @@ function handlePictureSubmit(data) {
       changeAvatarForm.close();
     })
     .catch((err) => {
-      console.log(`Error: ${err.status}`);
+      console.log("Error:", err);
     })
     .finally(() => {
       changeAvatarForm.toggleIsSaving(false);
     });
 }
 
-function handleDeleteCard(card) {
+function handleDeleteLocalCard(card) {
   confirmForm.open();
   confirmForm.setSubmit(() => {
     confirmForm.toggleIsSaving(true);
     api
       .deleteCard(card._id)
       .then(() => {
-        card.handleDeleteCard();
+        card.handleDeleteLocalCard();
         confirmForm.close();
       })
       .catch((err) => {
-        console.log(`Error: ${err.status}`);
+        console.error("Error:", err);
       })
       .finally(() => {
         confirmForm.toggleIsSaving(false);
       });
   });
 }
-
+// console.log(`Error: ${err.status}`);
 function handleCardLike(card) {
   if (card.isLiked()) {
     api
       .removeLike(card._id)
       .then((res) => card.updateLikes(res.likes))
       .catch((err) => {
-        console.log(`Error: ${err.status}`);
+        console.error("Error:", err);
       });
   } else {
     api
       .addLike(card._id)
       .then((res) => card.updateLikes(res.likes))
       .catch((err) => {
-        console.log(`Error: ${err.status}`);
+        console.error("Error:", err);
       });
   }
 }
@@ -213,7 +191,7 @@ function createCard(card) {
     cardSelector,
     handleCardLike,
     handleDisplayImage,
-    handleDeleteCard,
+    handleDeleteLocalCard,
     userId
   );
   return newCard.getCardElement();
