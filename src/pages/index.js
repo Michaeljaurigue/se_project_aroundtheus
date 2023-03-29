@@ -18,6 +18,7 @@ import Api from "../components/Api.js";
 ///////////////////////
 //Card Variables
 ///////////////////////
+
 const modalEditProfile = document.querySelector(".modal_edit");
 const addNewCardModal = document.querySelector(".modal_add-card");
 const modalPicturePicture = document.querySelector(".modal_profile");
