@@ -18,7 +18,7 @@
 }
 
 .profile__image:hover {
-  background: transparent url(../images/edit-icon.svg) center no-repeat;
+  background: transparent url(../images/change-image-icon.svg) center no-repeat;
   cursor: pointer;
   display: block;
 }
