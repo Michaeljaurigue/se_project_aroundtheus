@@ -92,6 +92,7 @@ function handleDisplayImage(name, link) {
 
 function displayChangeAvatar() {
   changeAvatarForm.open();
+  changeAvatarFormValidator.resetValidation();
 }
 
 function handleProfileSubmit(data) {
@@ -169,7 +170,6 @@ function handleDeleteLocalCard(card) {
   });
 }
 
-
 // console.log(`Error: ${err.status}`);
 function handleCardLike(card) {
   if (card.isLiked()) {
@@ -219,6 +219,8 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   });
 
 setPageListeners();
+
+///////////////////////
 
 const editProfileFormValidator = new FormValidator(
   configValidate,

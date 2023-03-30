@@ -8,6 +8,11 @@ class Api {
     };
   }
 
+  async _request(url, options) {
+    const res = await fetch(url, options);
+    return this._processServerResponse(res);
+  }
+
   _processServerResponse = (res) => {
     if (res.ok) {
       return res.json();
