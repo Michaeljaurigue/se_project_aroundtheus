@@ -7,7 +7,7 @@ class PopupWithImage extends Popup {
     this._modalImageDescription =
       this._popupElement.querySelector(".modal__image-text");
   }
-  console.log();
+ 
   open(name, link) {
     super.open();
     this._image.alt = name;

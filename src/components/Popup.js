@@ -8,7 +8,7 @@ class Popup {
     this._handleRemoteClickClose = this._handleRemoteClickClose.bind(this);
     this._closePopup = this.close.bind(this);
   }
-  console.log();
+  
   open() {
     this._popupElement.classList.add("modal__opened");
     this._setEventListeners();

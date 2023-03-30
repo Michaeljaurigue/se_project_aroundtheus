@@ -7,7 +7,7 @@ class Api {
       "Content-Type": "application/json",
     };
   }
-  console.log();
+
   _processServerResponse = (res) => {
     if (res.ok) {
       return res.json();

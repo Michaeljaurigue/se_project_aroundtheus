@@ -10,7 +10,7 @@ class PopupWithForm extends Popup {
     );
     this.currentButtonText = this._submitButton.textContent;
   }
-  console.log();
+ 
   _handleSubmit = (evt) => {
     evt.preventDefault();
     const inputValues = this._getInputValues();

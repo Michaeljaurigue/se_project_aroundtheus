@@ -10,7 +10,7 @@ class Section {
       this._cardsDisplayed.append(card);
     });
   }
-  console.log();
+  
   addItem(items) {
     const card = this._renderer(items);
     this._cardsDisplayed.prepend(card);

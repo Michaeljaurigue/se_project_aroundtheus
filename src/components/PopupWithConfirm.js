@@ -19,11 +19,11 @@ class PopupWithConfirm extends Popup {
       this._handleSubmitCallback();
     });
   }
-  console.log();
+ 
   setSubmit(input) {
     this._handleSubmitCallback = input;
   }
-  console.log();
+ 
   toggleIsSaving(isSaving) {
     if (isSaving) {
       this._submitButton.textContent = "Saving...";
