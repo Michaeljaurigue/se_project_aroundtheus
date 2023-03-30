@@ -4,13 +4,11 @@ class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
     this._handleOnSubmit = handleFormSubmit;
-    this._formSelector = this._popupElement.querySelector(".form");
-    this._submitButton = this._popupElement.querySelector(
-      ".form__submit-button"
-    );
+    this._formSelector = this._selector.querySelector(".form");
+    this._submitButton = this._selector.querySelector(".form__submit-button");
     this.currentButtonText = this._submitButton.textContent;
   }
- 
+
   _handleSubmit = (evt) => {
     evt.preventDefault();
     const inputValues = this._getInputValues();
@@ -41,7 +39,7 @@ class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    this._popupElement.querySelector(".form").reset();
+    this._formSelector.reset();
   }
 
   toggleIsSaving(isSaving) {

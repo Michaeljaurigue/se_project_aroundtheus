@@ -153,7 +153,7 @@ function handlePictureSubmit(data) {
 function handleDeleteLocalCard(card) {
   confirmForm.open();
   confirmForm.setSubmit(() => {
-    confirmForm.toggleIsSaving(true);
+    confirmForm.toggleIsDeleting(true);
     api
       .deleteCard(card._id)
       .then(() => {
@@ -164,7 +164,7 @@ function handleDeleteLocalCard(card) {
         console.error("Error:", err);
       })
       .finally(() => {
-        confirmForm.toggleIsSaving(false);
+        confirmForm.toggleIsDeleting(false);
       });
   });
 }
