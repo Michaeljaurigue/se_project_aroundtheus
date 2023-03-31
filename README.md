@@ -1,4 +1,4 @@
-Welcome to the Around The U.S Project! This project is the culmination of all the incredible skills and knowledge that I gained during my time at Practicum.com. 
+Welcome to the Around The U.S Project! This project is the culmination of all the incredible skills and knowledge that I gained during my time learning HTML, CSS, JAVASCRIPT, OBJECT ORIENTED PROGRAMMING, RESPONSIVE DESIGN, AND ASYNCHRONOUS API'S at Practicum.com. 
 
 Please check out the live project here:
 https://michaeljaurigue.github.io/se_project_aroundtheus/
