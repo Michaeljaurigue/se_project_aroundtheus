@@ -15,5 +15,3 @@ Overall, this project was an incredibly rewarding experience that allowed me to 
 
 Link to the project on Figma: https://www.figma.com/file/xQVeb8gprjukPVKXiLXS5T/Sprint-9-Applied-JavaScript?node-id=0%3A1
 
-Link to the project on Github pages:
-
