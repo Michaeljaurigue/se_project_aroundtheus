@@ -1,7 +1,7 @@
 Welcome to the Around The U.S Project! This project is the culmination of all the incredible skills and knowledge that I gained during my time learning HTML, CSS, JAVASCRIPT, OBJECT ORIENTED PROGRAMMING, RESPONSIVE DESIGN, AND ASYNCHRONOUS API'S at Practicum.com. 
 
 Please check out the live project here:
-https://michaeljaurigue.github.io/se_project_aroundtheus/
+https://aroundtheuswithmj.netlify.app/
 
 As a web developer, I had the privilege of utilizing cutting-edge technologies and techniques such as API integration, asynchronous code, object-oriented programming, and responsive web design.
 
